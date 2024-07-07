@@ -1,0 +1,157 @@
+.Homedive{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vh;
+    padding-top: 10vh;
+}
+.Homedive-p{
+    color: rgb(52, 52, 52,0.5);
+    padding-left: 7vw ;
+}
+.Homedive-p span{
+    color: rgba(219, 68, 68, 1);
+}
+.bodydive{
+    display: grid; 
+    grid-template-columns: 1fr 3fr; 
+    column-gap: 30px
+}
+#buttons button{
+    display: block;
+    background-color: blue;
+}
+form{
+    margin-top: 20vh;
+}
+.formdiv{
+    margin-bottom: 16px;
+    display: inline-block;
+    height: 100vh;
+    width: 70vw;
+    margin-top: 10vh;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+.mainh3{
+    font-family:'Poppins';
+    font-weight: 500;
+    font-size: 3vw;
+    color: rgba(219, 68, 68, 1);
+    margin-left: 5vw;
+}
+.firstdiv-form , .seconddiv-form , .thirddiv-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-right: 60px;
+}
+
+.firstName-div label , .lastName-div label ,.email-div label , .address-div label , .birthday-div label , .gender-div label{
+    display: block;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 3vh;
+    line-height: 1.5;
+    color: rgba(0,0,0,1);
+}
+.lastName-div input , .firstName-div input , .email-div input,.address-div input , .birthday-div input , .male-div input , .female-div input{
+    display: inline-block;
+    background-color:rgba(245, 245, 245, 1);
+    padding: 2vh;
+    border: none;
+    padding-right: 7vw;
+    
+}
+.savechanges{
+    margin-top: 10vh;
+}
+
+.savechanges button{
+    cursor:pointer;
+}
+.savechanges .save:hover{
+    background-color: rgba(200, 50, 50, 1);
+    transition: background-color 0.5s;  
+}
+.savechanges .save:active{
+    background-color: rgba(150, 30, 30, 1);
+}
+.savechanges .cancel:hover{
+    background-color: rgb(226, 225, 225);
+    transition: background-color 0.5s;
+    border: 0.5px solid black;
+}
+.savechanges .cancel:active{
+    background-color: rgb(216, 209, 209);
+    transition: background-color 0.5s;
+    border: 0.5px solid black;
+    border-radius: 10%;
+}
+.savechanges-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh;
+    margin-right: 5vw;
+}
+.savechanges .cancel{
+    border: none;
+    background-color: white;
+    padding-right: 1vw;
+}
+.savechanges .save{
+    background-color:rgba(219, 68, 68, 1) ;
+    color: white;
+    border: none;
+    padding: 2vh 3vw;
+    border-radius: 4px;
+}
+
+/* left div */
+.left-div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9vh;
+}
+.left-div2{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    padding-left: 8vw;
+}
+.left-div2 button{
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.myProfile-btn:hover,
+.mypayment-btn:hover,
+.myorder-btn:hover {
+    color: rgba(219, 68, 68, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

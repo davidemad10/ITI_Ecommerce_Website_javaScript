@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/profile.css" />
+    <title>Account</title>
+  </head>
+  <body>
+    <section class="mainSection">
+      <div class="Homedive">
+        <div>
+          <p class="Homedive-p">Home/<span>My Account</span></p>
+        </div>
+        <div>
+          <p style="padding-right: 2.5vw">
+            Welcome<span
+              style="color: rgba(219, 68, 68, 1)"
+              id="welcome-message"
+            ></span>
+          </p>
+        </div>
+      </div>
+      <div class="bodydive">
+        <div id="left-div">
+          <div>
+            <div class="left-div1">
+              <h3>Manage My Account</h3>
+            </div>
+            <div class="left-div2">
+              <button class="myProfile-btn">My profile</button>
+              <button class="mypayment-btn">My payment</button>
+              <button class="myorder-btn">My Order</button>
+            </div>
+          </div>
+        </div>
+        <div class="formdiv">
+          <div>
+            <h3 class="mainh3">Edit your profile</h3>
+            <form>
+              <div
+                class="firstdiv-form"
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  column-gap: 50px;
+                "
+              >
+                <div class="firstName-div">
+                  <label for="firstName">First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    style="width: 67%"
+                    disabled
+                  />
+                  <span onclick="allowEdit('firstName')" style="cursor: pointer"
+                    >✏️</span
+                  >
+                </div>
+                <div class="lastName-div">
+                  <label for="lastName">last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    style="width: 67%"
+                    disabled
+                  />
+                  <span onclick="allowEdit('lastName')" style="cursor: pointer"
+                    >✏️</span
+                  >
+                </div>
+              </div>
+              <div
+                class="seconddiv-form"
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  column-gap: 50px;
+                "
+              >
+                <div class="email-div">
+                  <label for="Email">Email</label>
+                  <input type="email" id="email" style="width: 67%" disabled />
+                  <span onclick="allowEdit('email')" style="cursor: pointer"
+                    >✏️</span
+                  >
+                </div>
+                <div class="address-div">
+                  <label for="address">Address</label>
+                  <input type="text" id="address" style="width: 67%" disabled />
+                  <span onclick="allowEdit('address')" style="cursor: pointer"
+                    >✏️</span
+                  >
+                </div>
+              </div>
+              <div
+                class="thirddiv-form"
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  column-gap: 50px;
+                "
+              >
+                <div class="gender-div" style="display: flex">
+                  <label
+                    for="gender"
+                    style="padding-top: 20px; padding-right: 10px"
+                    >Gender:
+                  </label>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-left: 4px;
+                      margin-top: 5px;
+                    "
+                  >
+                    <div class="male-div" style="margin-right: 10px">
+                      <label
+                        for="male"
+                        style="font-size: 1.5vw; padding-top: 1.5px"
+                        >Male</label
+                      >
+                      <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        value="Male"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="female-div"
+                        for="female"
+                        style="font-size: 1.5vw"
+                        >Female</label
+                      >
+                      <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="Female"
+                        style="margin-left: 30px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="birthday-div">
+                  <label for="birthday">Birthday</label>
+                  <input
+                    type="date"
+                    id="birthday"
+                    style="width: 67%"
+                    disabled
+                  />
+                  <span onclick="allowEdit('birthday')" style="cursor: pointer"
+                    >✏️</span
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="savechanges" style="display: flex; justify-content: end">
+            <div class="savechanges-div">
+              <button class="cancel">cancel</button>
+              <button class="save">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/scripts/profile.js"></script>
+  </body>
+</html>
