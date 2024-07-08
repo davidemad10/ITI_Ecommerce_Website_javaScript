@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signIn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@125,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="signUp.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="section" style="height: 72vh;">
+      <div class="container" style="height: auto;">
+        <h1 id="h1">website Name</h1>
+        <h3 id="h3">S I G N I N</h3>
+        <form id="form" style="margin-top: 9rem;">
+
+          <div class="box">
+            <label for="email">Email:</label>
+            <br />
+            <i class="fa-solid fa-at"></i>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@example.com"
+              required
+            />
+          </div>
+
+
+          <div class="box">
+            <label for="password">Password:</label>
+            <br />
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your Password"
+              required
+            />
+          </div>
+        </form>
+        <button type="submit" id="registerButton" style="margin-top: 2rem;">LogIn</button>
+      </div>
+      <p class="already">Don't have an Account <a href="signUp.html">SignUp</a></p>
+    </section>
+  </body>
+</html>
