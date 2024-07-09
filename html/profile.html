@@ -13,7 +13,7 @@
           <p class="Homedive-p">Home/<span>My Account</span></p>
         </div>
         <div>
-          <p style="padding-right: 2.5vw">
+          <p style="padding-right: 6vw">
             Welcome<span style="color: #8c5600" id="welcome-message"></span>
           </p>
         </div>
@@ -25,9 +25,9 @@
               <h3>Manage My Account</h3>
             </div>
             <div class="left-div2">
-              <button class="myProfile-btn">My profile</button>
-              <button class="mypayment-btn">My payment</button>
-              <button class="myorder-btn">My Order</button>
+              <a href="#" class="myProfile-btn">My profile</a>
+              <a href="#" class="mypayment-btn">My payment</a>
+              <a href="#" class="myorder-btn">My Order</a>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
                   <input
                     type="text"
                     id="firstName"
-                    style="width: 60%"
+                    style="width: 59.9%"
                     disabled
                   />
                   <span onclick="allowEdit('firstName')" style="cursor: pointer"
@@ -60,7 +60,7 @@
                   <input
                     type="text"
                     id="lastName"
-                    style="width: 60%"
+                    style="width: 59.9%"
                     disabled
                   />
                   <span onclick="allowEdit('lastName')" style="cursor: pointer"
@@ -78,14 +78,24 @@
               >
                 <div class="email-div">
                   <label for="Email">Email</label>
-                  <input type="email" id="email" style="width: 60%" disabled />
+                  <input
+                    type="email"
+                    id="email"
+                    style="width: 59.9%"
+                    disabled
+                  />
                   <span onclick="allowEdit('email')" style="cursor: pointer"
                     ><img src="icons/icons8-edit-50.png" style="width: 1.4vw"
                   /></span>
                 </div>
                 <div class="address-div">
                   <label for="address">Address</label>
-                  <input type="text" id="address" style="width: 60%" disabled />
+                  <input
+                    type="text"
+                    id="address"
+                    style="width: 59.9%"
+                    disabled
+                  />
                   <span onclick="allowEdit('address')" style="cursor: pointer"
                     ><img src="icons/icons8-edit-50.png" style="width: 1.4vw"
                   /></span>
@@ -128,6 +138,7 @@
                         id="male"
                         name="gender"
                         value="Male"
+                        disabled
                       />
                     </div>
                     <div>
@@ -143,16 +154,26 @@
                         name="gender"
                         value="Female"
                         style="margin-left: 30px"
+                        disabled
                       />
                     </div>
                   </div>
+                  <span
+                    onclick="allowEdit('female') , allowEdit('male')"
+                    style="
+                      cursor: pointer;
+                      padding-left: 1.5vw;
+                      padding-top: 1.6vh;
+                    "
+                    ><img src="icons/icons8-edit-50.png" style="width: 1.4vw"
+                  /></span>
                 </div>
                 <div class="birthday-div">
                   <label for="birthday">Birthday</label>
                   <input
                     type="date"
                     id="birthday"
-                    style="width: 60%"
+                    style="width: 59.9%"
                     disabled
                   />
                   <span onclick="allowEdit('birthday')" style="cursor: pointer"
@@ -164,8 +185,14 @@
           </div>
           <div class="savechanges">
             <div class="savechanges-div">
-              <button class="cancel">cancel</button>
-              <button class="save">Save Changes</button>
+              <div id="saveAlert"></div>
+              <button
+                class="save"
+                id="save"
+                onclick="saveChanges(),setActive()"
+              >
+                Save Changes
+              </button>
             </div>
           </div>
         </div>

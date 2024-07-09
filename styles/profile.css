@@ -11,7 +11,7 @@ body{
 }
 .Homedive-p{
     color: rgb(52, 52, 52,0.5);
-    padding-left: 7vw ;
+    padding-left: 5.8vw ;
 }
 .Homedive-p span{
     color: #8c5600;
@@ -79,18 +79,13 @@ form{
 .savechanges{
     display: flex; 
     justify-content: end;
-    margin-top: 10vh;
-}
-.savechanges .cancel{
-    border: none;
-    background-color: #EBE3D5;
-    padding-right: 1vw;
+    margin-top: 17vh;
 }
 .savechanges .save{
     background-color:  #544a3b ;
     color: white;
     border: none;
-    padding: 2vh 3vw;
+    padding: 2.5vh 3.5vw;
     border-radius: 4px;
 }
 .savechanges button{
@@ -104,19 +99,8 @@ form{
 .savechanges .save:active{
     background-color: #635a4cb3;
 }
-.savechanges .cancel:hover{
-    background-color: #5c4f3b;
-    color:white;
-    transition: background-color 0.5s;
-    border: 0.5px solid black;
-    border-radius: 4px;
-}
-.savechanges .cancel:active{
-    background-color: #483d2ba0;
-    transition: background-color 0.5s;
-    border: 0.5px solid black;
-    border-radius: 10%;
-}
+
+
 
 /* left div */
 .left-div1 {
@@ -130,24 +114,21 @@ form{
     justify-content: center;
     align-items:flex-start;
     flex-direction: column;
-    padding-left: 8vw;
+    padding-left: 5.5vw;
 }
-.left-div2 button{
+.left-div2 a{
     display: block;
     background-color: transparent;
+    color: black;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 }
 .myProfile-btn:hover,
 .mypayment-btn:hover,
 .myorder-btn:hover {
     color: #845407;
 }
-
-
-
-
-
 
 
 
