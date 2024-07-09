@@ -23,17 +23,31 @@
         <h3 id="h3">S I G N U P</h3>
         <form id="form">
           <div class="box">
-            <label for="userName">Full Name:</label>
+            <label for="firstName">First Name:</label>
             <br />
             <i class="fa-solid fa-user"></i>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
-              placeholder="Enter your Full Name"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter your First Name"
               required
             />
-            <span id="nameError" class="error-message"></span>
+            <span id="firstNameError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="lastName">Last Name:</label>
+            <br />
+            <i class="fa-solid fa-user-tie"></i>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter your Last Name"
+              required
+            />
+            <span id="lastNameError" class="error-message"></span>
           </div>
 
           <div class="box">
@@ -60,7 +74,6 @@
               <option value="female">Female</option>
             </select>
             <span id="genderError" class="error-message"></span>
-
           </div>
 
           <div class="box">
@@ -68,6 +81,7 @@
             <br />
             <i class="fa-solid fa-calendar-days"></i>
             <input type="date" id="birthday" name="birthday" required />
+            <span id="birthdayError" class="error-message"></span>
           </div>
 
           <div class="box">
@@ -88,19 +102,7 @@
               <option value="portsaid">Portsaid</option>
               <option value="ismilia">Ismilia</option>
             </select>
-          </div>
-
-          <div class="box">
-            <label> phone: </label>
-            <br />
-            <i class="fa-solid fa-phone"></i>
-            <input
-              type="number"
-              id="number"
-              name="number"
-              placeholder="01XXXXXXXXX"
-              required
-            />
+            <span id="cityError" class="error-message"></span>
           </div>
 
           <div class="box">
@@ -136,11 +138,13 @@
             <input type="checkbox" id="terms" name="terms" required />
             <label>I accept the terms and conditions</label>
           </div>
-          <br>
+          <br />
           <button type="submit" id="registerButton">Register</button>
         </form>
       </div>
-      <p class="already">already have an Account <a href="signIn.html">SignIn</a></p>
+      <p class="already">
+        already have an Account <a href="signIn.html">SignIn</a>
+      </p>
     </section>
     <script src="signUp.js"></script>
   </body>
