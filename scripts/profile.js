@@ -39,25 +39,4 @@ birthday.value=loggedInUser.birthday;
 function allowEdit(id) {
     const element = document.getElementById(id);
     element.disabled = !element.disabled;
-    if(id==='firstName'){
-        console.log(firstName.value);
-    }
-    else if(id==='lastName'){
-        console.log(lastName.value);
-    }
-    else if(id==='email'){
-        console.log(email.value);
-    }
-    else if(id==='address'){
-        console.log(address.value);
-    }
-    else if(id==='birthday'){
-        console.log(birthday.value);
-    }
-    else  if (id === 'male' || id === 'female') { 
-        console.log(document.querySelector(`input[name="gender"]:checked`).value);
-    } else {
-        console.log(element.value);
-    }
-
 }
