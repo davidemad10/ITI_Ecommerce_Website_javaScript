@@ -32,16 +32,42 @@ fetch(`https://dummyjson.com/products/category/${category}`)
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
-                    <h2>${product.title}</h2>
-                    <p>${product.description}</p>
-                    <p>Price: $${product.price}</p>
-                    <p>Category: ${product.category}</p>
-                    <p>Rating: ${product.rating}</p>
-                    <p>Stock: ${product.stock}</p>
-                    <img src="${product.thumbnail}" alt="${product.title}" />
+                    <div>
+                      <div class=product-details">
+                        <h2>${product.title}</h2>
+                        <img src="${product.thumbnail}" alt="${product.title}" />
+                        <div class="product-content">
+                          <p>${product.description}</p>
+                          <p>Price: $${product.price}</p>
+                          <p>Category: ${product.category}</p>
+                          <div class="rating">${generateStars(product.rating)}</div>
+                            <p>Stock: ${product.stock}</p>
+                        </div>
+                      </div>
+                      <div class="addToCard">
+                        <button>Add To Card</button>
+                      </div>
+                    </div>
+
                 `;
     dataDiv.appendChild(productDiv);
     });
 })
 .catch((error) => console.error("Error fetching data:", error));
+}
+
+//function to generate stars
+function generateStars(rating) {
+  const maxStars = 5;
+  let stars = '';
+  for (let i = 1; i <= maxStars; i++) {
+    if (i <= rating) {
+      stars += '<i class="fas fa-star"></i>';
+    } else if (i - rating < 1) {
+      stars += '<i class="fas fa-star-half-alt"></i>';
+    } else {
+      stars += '<i class="far fa-star"></i>';
+    }
+  }
+  return stars;
 }
