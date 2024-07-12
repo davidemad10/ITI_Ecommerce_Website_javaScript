@@ -8,9 +8,24 @@ const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {
     birthday:"2001-01-01"
 };
 
+// const {firstName,lastName,email,password,address,gender,birthday} = JSON.parse(localStorage.getItem('loggedInUser')) || {
+    //     firstName: "David",
+    //     lastName: "Emad",
+    //     email: "david@gmail.com",
+    //     password: "123456789",
+    //     address: "5st emadhamdy",
+    //     gender:"Male",
+    //     birthday:"2001-01-01"
+    // };
+    
+    //this to get user info from local storage 
+    // const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) 
+
+//see if the user is logged in or not 
 document.addEventListener('DOMContentLoaded', function() {
     if (!loggedInUser) {
         window.location.href = '/login.html';
+        return;
 }});
 
 
