@@ -18,10 +18,16 @@ const changeImage = (index, mainImages, thumbnails) => {
   thumbnails.forEach((thumb) => {
     thumb.classList.remove("active");
   });
+  console.log(index);
+  console.log(mainImages);
+  console.log(thumbnails);
+
+
 
   mainImages[index].classList.add("active");
   thumbnails[index].classList.add("active");
   currentImageIndex = index;
+  console.log(currentImageIndex);
 };
 
 thumbnails.forEach((thumb, index) => {

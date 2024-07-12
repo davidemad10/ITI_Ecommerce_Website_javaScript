@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" /> -->
+
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js" defer></script>
+    <script src="slider.js" defer></script>
+    <script src="cart.js" defer></script>
+    <script src="ProductDetails.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <section class="nav-first">
+                    <svg class="menu-icon" width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd" />
+                    </svg>
+                    <div class="logo">
+                        <!-- <img src="images/logo.svg" alt="sneakers logo" /> -->
+                    </div>
+                    <div class="backdrop"></div>
+                    <div class="nav-links">
+                        <svg class="close-icon" width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                                fill="#69707D" fill-rule="evenodd" />
+                        </svg>
+                        <a href="#">Categories</a>
+                        <a href="#">profile</a>
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </section>
+                <section class="nav-second">
+                    <div class="cart">
+                        <img class="cart-icon" src="images/icon-cart.svg" alt="cart icon" />
+                        <div class="cart-container">
+                            <div class="cart-title">Cart</div>
+                            <div class="cart-items empty">
+                                <p class="cart-empty">Your cart is empty</p>
+                            </div>
+                            <button class="checkout empty">Checkout</button>
+                        </div>
+                        <div class="cart-count">
+                            <span class="qty">0</span>
+                        </div>
+                    </div>
+                    <div class="avatar">
+                        <!-- <img src="images/image-avatar.png" alt="avatar" /> -->
+                    </div>
+                </section>
+            </nav>
+        </header>
+
+
+        <main>
+            <!-- <section class="cart">
+                <h1>Your Cart</h1>
+                <div class="cart-items-container">
+                    <div class="cart-items empty"></div>
+                </div>
+                <button class="checkout empty">Checkout</button>
+            </section> -->
+
+            <!--             
+            <div class="cart-items">Cart cart-items
+                <div class="cart-item"></div>
+            </div>
+            <button class="checkout empty">Checkout</button> -->
+
+
+
+            <h1>Shopping Cart</h1>
+            <div id ="cart-items" class="cart-items"></div>
+            <button class="checkout empty">Checkout</button>
+
+            <script src="cart.js"></script>
+
+        </main>
+    </div>
+
+
+    <script src="cart.js"></script>
+</body>
+
+</html>
