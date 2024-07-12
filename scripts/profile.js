@@ -1,4 +1,4 @@
-const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ||{
+const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {
     firstName: "David",
     lastName: "Emad",
     email: "david@gmail.com",
@@ -7,6 +7,13 @@ const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ||{
     gender:"Male",
     birthday:"2001-01-01"
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (!loggedInUser) {
+        window.location.href = '/login.html';
+}});
+
+
 //making dynamic wlecome
 const userName=loggedInUser.firstName;
 const welcomeMessage=document.getElementById('welcome-message');
@@ -60,7 +67,7 @@ function saveChanges(id){
         input.style.border = "";
     });
     //change the welcome message to new name 
-    welcomeMessage.textContent=document.getElementById('firstName').value;
+    welcomeMessage.textContent = ` ${document.getElementById('firstName').value}`;
     setActive();
 }
 //successfully saved 

@@ -27,7 +27,7 @@ fetch(`https://dummyjson.com/products/category/${category}`)
 .then((response) => response.json())
 .then((data) => {
     const dataDiv = document.getElementById("data");
-    dataDiv.innerHTML = ""; // Clear previous content
+    dataDiv.innerHTML = ""; 
     data.products.forEach((product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
@@ -37,7 +37,7 @@ fetch(`https://dummyjson.com/products/category/${category}`)
                         <h2>${product.title}</h2>
                         <img src="${product.thumbnail}" alt="${product.title}" />
                         <div class="product-content">
-                          <p>${product.description}</p>
+                          <p class="product-description">${product.description}</p>
                           <p>Price: $${product.price}</p>
                           <p>Category: ${product.category}</p>
                           <div class="rating">${generateStars(product.rating)}</div>
@@ -45,7 +45,7 @@ fetch(`https://dummyjson.com/products/category/${category}`)
                         </div>
                       </div>
                       <div class="addToCard">
-                        <button>Add To Card</button>
+                        <button><img src="/html/icons/download.png"/><span>Add To Card</span></button>
                       </div>
                     </div>
 
