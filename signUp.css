@@ -56,7 +56,18 @@ h3 {
   padding: 1rem;
 }
 
-#form {
+#signupForm {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 90%;
+}
+
+#loginForm {
   display: flex;
   margin: auto;
   flex-direction: row;

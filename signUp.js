@@ -15,7 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const birthdayError = document.getElementById("birthdayError");
   const cityInput = document.getElementById("city");
   const cityError = document.getElementById("cityError");
-  const form = document.getElementById("registerButton");
+
+  const registerButton = document.getElementById("registerButton");
+
+  const signupForm = document.querySelector(".signupForm");
+
   // firstNameInput.addEventListener('focus', () => {
   //     firstNameInput.style.border = 'solid 0.25px red';
   // });
@@ -157,7 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
       passwordInput.style.borderBottom = "solid 0.3px green";
     }
   });
-  form.addEventListener("submit", (event) => {
+  registerButton.addEventListener("submit", (event) => {
+    document.preventDefault();
     if (firstNameInput.value.length < 3) {
       firstNameError.textContent = "Invalid name";
       firstNameError.style.display = "block";
@@ -178,6 +183,325 @@ document.addEventListener("DOMContentLoaded", () => {
       passwordError.style.display = "none";
       firstNameInput.style.backgroundColor = "white";
       repeatPasswordInput.style.backgroundColor = "white";
+      alert();
     }
   });
 });
+
+//#############saving the data in the local storage#####################
+document.getElementById("signupForm").addEventListener("submit", submitFun);
+
+function submitFun(event) {
+  event.preventDefault();
+
+  const firstName = document.getElementById("firstName").value;
+  const lastName = document.getElementById("lastName").value;
+  const email = document.getElementById("email").value;
+  const gender = document.getElementById("gender").value;
+  const birthday = document.getElementById("birthday").value;
+  const city = document.getElementById("city").value;
+  const password = document.getElementById("password").value;
+
+  localStorage.setItem("firstName", firstName);
+  localStorage.setItem("lastName", lastName);
+  localStorage.setItem("email", email);
+  localStorage.setItem("gender", gender);
+  localStorage.setItem("birthday", birthday);
+  localStorage.setItem("city", city);
+  localStorage.setItem("password", password);
+
+  //   const formData = new FormData(form);
+  //   const data = Object.fromEntries(formData);
+  //   const jsonData = JSON.stringify(data);
+
+  //   fetch("https://michael-emad-ramzy.github.io/eCommerce-api/users.json", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: jsonData,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => console.log(result.data))
+  //     .catch((err) => console.log(err));
+  // }
+
+  //#############################################################3
+
+  const signupForm = document.getElementById("signupForm");
+  const loginForm = document.getElementById("loginForm");
+  const message = document.getElementById("message");
+
+  // GitHub repository information
+  const owner = "Michael-Emad-Ramzy";
+  const repo = "eCommerce-api";
+  const path = "users.json";
+  const branch = "main"; // Assuming the file is on the main branch
+  const token =
+    "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"; // Replace with your GitHub token
+
+  // Fetch the JSON file from GitHub
+  async function fetchUsers() {
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    // GitHub repository information
+    const owner = "Michael-Emad-Ramzy";
+    const repo = "eCommerce-api";
+    const path = "users.json";
+    const branch = "main"; // Assuming the file is on the main branch
+    const token =
+      "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"; // Replace with your GitHub token
+
+    const response = await fetch(
+      `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
+    );
+
+    // Fetch the JSON file from GitHub
+    async function fetchUsers() {
+      const response = await fetch(
+        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
+      );
+      const users = await response.json();
+      return users;
+    }
+
+    // Get the current file SHA for updating
+    async function getFileSha() {
+      const response = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+        {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      return data.sha;
+    }
+
+    // Update the JSON file on GitHub
+    async function updateUserFile(updatedUsers) {
+      const sha = await getFileSha();
+      const content = btoa(JSON.stringify(updatedUsers, null, 2));
+
+      const response = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `token ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message: "Update users.json",
+            content,
+            sha,
+            branch,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update file on GitHub");
+      }
+    }
+
+    // Signup event
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const users = await fetchUsers();
+      const userExists = users.some((user) => user.username === username);
+
+      if (userExists) {
+        message.textContent = "User already exists.";
+      } else {
+        users.push({ username, password });
+        try {
+          await updateUserFile(users);
+          message.textContent = "Signup successful!";
+        } catch (error) {
+          message.textContent = `Error: ${error.message}`;
+        }
+      }
+    });
+
+    // Login event
+    // loginForm.addEventListener("submit", async (e) => {
+    //   e.preventDefault();
+    //   const username = document.getElementById("loginUsername").value;
+    //   const password = document.getElementById("loginPassword").value;
+
+    //   const users = await fetchUsers();
+    //   const user = users.find(
+    //     (user) => user.username === username && user.password === password
+    //   );
+
+    //   if (user) {
+    //     message.textContent = "Login successful!";
+    //   } else {
+    //     message.textContent = "Invalid username or password.";
+    //   }
+    // });
+
+    const users = await response.json();
+    return users;
+  }
+
+  // Get the current file SHA for updating
+  async function getFileSha() {
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+      {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      }
+    );
+    const data = await response.json();
+    return data.sha;
+  }
+
+  // Update the JSON file on GitHub
+  async function updateUserFile(updatedUsers) {
+    const sha = await getFileSha();
+    const content = btoa(JSON.stringify(updatedUsers, null, 2));
+
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Update users.json",
+          content: content,
+          sha: sha,
+          branch: branch,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to update file on GitHub");
+    }
+  }
+
+  // Signup event
+  signupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const username = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const users = await fetchUsers();
+    const userExists = users.some((user) => user.username === username);
+
+    if (userExists) {
+      message.textContent = "User already exists.";
+    } else {
+      users.push({ username, password });
+      try {
+        await updateUserFile(users);
+        message.textContent = "Signup successful!";
+      } catch (error) {
+        message.textContent = `Error: ${error.message}`;
+      }
+    }
+  });
+
+  // Login event
+  // loginForm.addEventListener("submit", async (e) => {
+  //   e.preventDefault();
+  //   const username = document.getElementById("loginUsername").value;
+  //   const password = document.getElementById("loginPassword").value;
+
+  //   const users = await fetchUsers();
+  //   const user = users.find(
+  //     (user) => user.username === username && user.password === password
+  //   );
+
+  //   if (user) {
+  //     message.textContent = "Login successful!";
+  //   } else {
+  //     message.textContent = "Invalid username or password.";
+  //   }
+  // });
+}
+
+//############saving the data in JSON file###################
+
+// document
+//   .getElementById("registerButton")
+//   .addEventListener("click", saveFormData);
+
+// function saveFormData() {
+//   const firstName = document.getElementById("firstName").value;
+//   const lastName = document.getElementById("lastName").value;
+//   const email = document.getElementById("email").value;
+//   const gender = document.getElementById("gender").value;
+//   const birthday = document.getElementById("birthday").value;
+//   const city = document.getElementById("city").value;
+//   const password = document.getElementById("password").value;
+
+//   const formData = {
+//     firstName: firstName,
+//     lastName: lastName,
+//     email: email,
+//     gender: gender,
+//     birthday: birthday,
+//     city: city,
+//     password: password,
+//   };
+
+//   const formDataArray = [formData]; // Save it in an array if needed
+
+//   const jsonString = JSON.stringify(formDataArray, null, 2);
+
+//   // For browsers supporting the File System Access API
+//   if (window.showSaveFilePicker) {
+//     saveToFileSystem(jsonString);
+//   } else {
+//     // Fallback for older browsers
+//     saveToFile(jsonString);
+//   }
+// }
+
+// async function saveToFileSystem(jsonString) {
+//   const options = {
+//     types: [
+//       {
+//         description: "JSON Files",
+//         accept: {
+//           "application/json": [".json"],
+//         },
+//       },
+//     ],
+//   };
+
+//   try {
+//     const fileHandle = await window.showSaveFilePicker(options);
+//     const writable = await fileHandle.createWritable();
+//     await writable.write(jsonString);
+//     await writable.close();
+//     alert("File saved successfully!");
+//   } catch (err) {
+//     console.error("Error saving file:", err);
+//   }
+// }
+
+// function saveToFile(jsonString) {
+//   const blob = new Blob([jsonString], { type: "application/json" });
+//   const url = URL.createObjectURL(blob);
+//   const a = document.createElement("a");
+//   a.href = url;
+//   a.download = "formData.json";
+//   a.click();
+//   URL.revokeObjectURL(url);
+//   alert("File saved successfully!");
+// }
