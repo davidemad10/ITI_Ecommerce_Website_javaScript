@@ -22,6 +22,11 @@ document.querySelectorAll(".link-list a").forEach((link) => {
 })
 .catch((error) => console.error("Error fetching categories:", error));
 
+document.addEventListener('DOMContentLoaded', function() {
+  fetchData("groceries")
+});
+
+
 function fetchData(category) {
 fetch(`https://dummyjson.com/products/category/${category}`)
 .then((response) => response.json())
