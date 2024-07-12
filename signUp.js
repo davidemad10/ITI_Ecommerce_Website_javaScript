@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       repeatPasswordError.textContent =
         "Password and repeat password should be the same";
       repeatPasswordError.style.display = "block";
-      repeatPasswordInput.focus();
+      repeatPasswordInput.select();
       repeatPasswordInput.style.backgroundColor = "transparent";
       repeatPasswordInput.style.borderBottom = "solid 0.3px red";
     } else {
@@ -189,250 +189,353 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //#############saving the data in the local storage#####################
-document.getElementById("signupForm").addEventListener("submit", submitFun);
 
-function submitFun(event) {
-  event.preventDefault();
+// document.getElementById("signupForm").addEventListener("submit", submitFun);
 
-  const firstName = document.getElementById("firstName").value;
-  const lastName = document.getElementById("lastName").value;
-  const email = document.getElementById("email").value;
-  const gender = document.getElementById("gender").value;
-  const birthday = document.getElementById("birthday").value;
-  const city = document.getElementById("city").value;
-  const password = document.getElementById("password").value;
+// function submitFun(event) {
+//   event.preventDefault();
 
-  localStorage.setItem("firstName", firstName);
-  localStorage.setItem("lastName", lastName);
-  localStorage.setItem("email", email);
-  localStorage.setItem("gender", gender);
-  localStorage.setItem("birthday", birthday);
-  localStorage.setItem("city", city);
-  localStorage.setItem("password", password);
+//   const firstName = document.getElementById("firstName").value;
+//   const lastName = document.getElementById("lastName").value;
+//   const email = document.getElementById("email").value;
+//   const gender = document.getElementById("gender").value;
+//   const birthday = document.getElementById("birthday").value;
+//   const city = document.getElementById("city").value;
+//   const password = document.getElementById("password").value;
 
-  //   const formData = new FormData(form);
-  //   const data = Object.fromEntries(formData);
-  //   const jsonData = JSON.stringify(data);
+//   localStorage.setItem("firstName", firstName);
+//   localStorage.setItem("lastName", lastName);
+//   localStorage.setItem("email", email);
+//   localStorage.setItem("gender", gender);
+//   localStorage.setItem("birthday", birthday);
+//   localStorage.setItem("city", city);
+//   localStorage.setItem("password", password);
 
-  //   fetch("https://michael-emad-ramzy.github.io/eCommerce-api/users.json", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: jsonData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => console.log(result.data))
-  //     .catch((err) => console.log(err));
-  // }
+//   const formData = new FormData(signupForm);
+//   const data = Object.fromEntries(formData);
 
-  //#############################################################3
+//   console.log(data);
+//   const jsonData = JSON.stringify(data);
 
-  const signupForm = document.getElementById("signupForm");
-  const loginForm = document.getElementById("loginForm");
-  const message = document.getElementById("message");
+//   fetch("https://api.jsonbin.io/v3/b/66913e9cad19ca34f8869592", {
+//     method: "POST",
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//     body: jsonData,
+//   })
+//     .then((res) => res.json())
+//     .then((result) => console.log(result.data))
+//     .catch((err) => console.log(err));
+// }
 
-  // GitHub repository information
-  const owner = "Michael-Emad-Ramzy";
-  const repo = "eCommerce-api";
-  const path = "users.json";
-  const branch = "main"; // Assuming the file is on the main branch
-  const token =
-    "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"; // Replace with your GitHub token
+const binId = "66913e9cad19ca34f8869592";
+const masterKey =
+  "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
+const apiUrl = `https://api.jsonbin.io/v3/b/${binId}`;
 
-  // Fetch the JSON file from GitHub
-  async function fetchUsers() {
-    const signupForm = document.getElementById("signupForm");
-    const loginForm = document.getElementById("loginForm");
-    const message = document.getElementById("message");
-
-    // GitHub repository information
-    const owner = "Michael-Emad-Ramzy";
-    const repo = "eCommerce-api";
-    const path = "users.json";
-    const branch = "main"; // Assuming the file is on the main branch
-    const token =
-      "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"; // Replace with your GitHub token
-
-    const response = await fetch(
-      `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
-    );
-
-    // Fetch the JSON file from GitHub
-    async function fetchUsers() {
-      const response = await fetch(
-        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
-      );
-      const users = await response.json();
-      return users;
-    }
-
-    // Get the current file SHA for updating
-    async function getFileSha() {
-      const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
-        {
-          headers: {
-            Authorization: `token ${token}`,
-          },
-        }
-      );
-      const data = await response.json();
-      return data.sha;
-    }
-
-    // Update the JSON file on GitHub
-    async function updateUserFile(updatedUsers) {
-      const sha = await getFileSha();
-      const content = btoa(JSON.stringify(updatedUsers, null, 2));
-
-      const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: "Update users.json",
-            content,
-            sha,
-            branch,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to update file on GitHub");
-      }
-    }
-
-    // Signup event
-    signupForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const username = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      const users = await fetchUsers();
-      const userExists = users.some((user) => user.username === username);
-
-      if (userExists) {
-        message.textContent = "User already exists.";
-      } else {
-        users.push({ username, password });
-        try {
-          await updateUserFile(users);
-          message.textContent = "Signup successful!";
-        } catch (error) {
-          message.textContent = `Error: ${error.message}`;
-        }
-      }
+// Function to fetch data
+async function fetchData() {
+  try {
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "X-Master-Key": masterKey,
+      },
     });
-
-    // Login event
-    // loginForm.addEventListener("submit", async (e) => {
-    //   e.preventDefault();
-    //   const username = document.getElementById("loginUsername").value;
-    //   const password = document.getElementById("loginPassword").value;
-
-    //   const users = await fetchUsers();
-    //   const user = users.find(
-    //     (user) => user.username === username && user.password === password
-    //   );
-
-    //   if (user) {
-    //     message.textContent = "Login successful!";
-    //   } else {
-    //     message.textContent = "Invalid username or password.";
-    //   }
-    // });
-
-    const users = await response.json();
-    return users;
-  }
-
-  // Get the current file SHA for updating
-  async function getFileSha() {
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
-      {
-        headers: {
-          Authorization: `token ${token}`,
-        },
-      }
-    );
     const data = await response.json();
-    return data.sha;
+    return data.record || []; // Ensure it returns an array
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
   }
+}
 
-  // Update the JSON file on GitHub
-  async function updateUserFile(updatedUsers) {
-    const sha = await getFileSha();
-    const content = btoa(JSON.stringify(updatedUsers, null, 2));
-
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `token ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: "Update users.json",
-          content: content,
-          sha: sha,
-          branch: branch,
-        }),
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to update file on GitHub");
-    }
+// Function to update data using POST
+async function updateData(newData) {
+  try {
+    const response = await fetch(apiUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": masterKey,
+      },
+      body: JSON.stringify(newData),
+    });
+    const data = await response.json();
+    console.log("Updated data:", data);
+  } catch (error) {
+    console.error("Error updating data:", error);
   }
+}
 
-  // Signup event
-  signupForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const username = document.getElementById("email").value;
+document
+  .getElementById("signupForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const gender = document.getElementById("gender").value;
+    const birthday = document.getElementById("birthday").value;
+    const city = document.getElementById("city").value;
     const password = document.getElementById("password").value;
 
-    const users = await fetchUsers();
-    const userExists = users.some((user) => user.username === username);
+    const newData = {
+      firstName,
+      lastName,
+      email,
+      gender,
+      birthday,
+      city,
+      password,
+    };
+
+    // Fetch existing data
+    let existingData = await fetchData();
+
+    // Ensure existingData is an array
+    if (!Array.isArray(existingData)) {
+      existingData = [];
+    }
+
+    // Check if user with the same email already exists
+    const userExists = existingData.some((user) => user.email === email);
+
+    const messageElement = document.getElementById("message");
 
     if (userExists) {
-      message.textContent = "User already exists.";
+      messageElement.textContent = "This Email address already exists.";
+      messageElement.style.color = "red";
     } else {
-      users.push({ username, password });
-      try {
-        await updateUserFile(users);
-        message.textContent = "Signup successful!";
-      } catch (error) {
-        message.textContent = `Error: ${error.message}`;
-      }
+      // Add new data to existing data
+      existingData.push(newData);
+
+      // Update the data on jsonbin.io using PUT
+      await updateData(existingData);
+
+      // Optional: Update local storage
+      localStorage.setItem("firstName", firstName);
+      localStorage.setItem("lastName", lastName);
+      localStorage.setItem("email", email);
+      localStorage.setItem("gender", gender);
+      localStorage.setItem("birthday", birthday);
+      localStorage.setItem("city", city);
+      localStorage.setItem("password", password);
+
+      messageElement.textContent = "User added successfully.";
+      messageElement.style.color = "green";
+      messageElement.style.display = "block";
     }
   });
+//#############################################################3
 
-  // Login event
-  // loginForm.addEventListener("submit", async (e) => {
-  //   e.preventDefault();
-  //   const username = document.getElementById("loginUsername").value;
-  //   const password = document.getElementById("loginPassword").value;
+// const signupForm = document.getElementById("signupForm");
+// const loginForm = document.getElementById("loginForm");
+// const message = document.getElementById("message");
 
-  //   const users = await fetchUsers();
-  //   const user = users.find(
-  //     (user) => user.username === username && user.password === password
-  //   );
+// // GitHub repository information
+// const owner = "Michael-Emad-Ramzy";
+// const repo = "eCommerce-api";
+// const path = "users.json";
+// const branch = "main"; // Assuming the file is on the main branch
+// const token =
+//   "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"; // Replace with your GitHub token
 
-  //   if (user) {
-  //     message.textContent = "Login successful!";
-  //   } else {
-  //     message.textContent = "Invalid username or password.";
-  //   }
-  // });
-}
+// // Fetch the JSON file from GitHub
+// async function fetchUsers() {
+//   const signupForm = document.getElementById("signupForm");
+//   const loginForm = document.getElementById("loginForm");
+//   const message = document.getElementById("message");
+
+//   // GitHub repository information
+//   const owner = "Michael-Emad-Ramzy";
+//   const repo = "eCommerce-api";
+//   const path = "users.json";
+//   const branch = "main"; // Assuming the file is on the main branch
+//   const token =
+//     "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"; // Replace with your GitHub token
+
+//   const response = await fetch(
+//     `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
+//   );
+
+//   // Fetch the JSON file from GitHub
+//   async function fetchUsers() {
+//     const response = await fetch(
+//       `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`
+//     );
+//     const users = await response.json();
+//     return users;
+//   }
+
+//   // Get the current file SHA for updating
+//   async function getFileSha() {
+//     const response = await fetch(
+//       `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+//       {
+//         headers: {
+//           Authorization: `token ${token}`,
+//         },
+//       }
+//     );
+//     const data = await response.json();
+//     return data.sha;
+//   }
+
+//   // Update the JSON file on GitHub
+//   async function updateUserFile(updatedUsers) {
+//     const sha = await getFileSha();
+//     const content = btoa(JSON.stringify(updatedUsers, null, 2));
+
+//     const response = await fetch(
+//       `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+//       {
+//         method: "PUT",
+//         headers: {
+//           Authorization: `token ${token}`,
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           message: "Update users.json",
+//           content,
+//           sha,
+//           branch,
+//         }),
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error("Failed to update file on GitHub");
+//     }
+//   }
+
+//   // Signup event
+//   signupForm.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+//     const username = document.getElementById("email").value;
+//     const password = document.getElementById("password").value;
+
+//     const users = await fetchUsers();
+//     const userExists = users.some((user) => user.username === username);
+
+//     if (userExists) {
+//       message.textContent = "User already exists.";
+//     } else {
+//       users.push({ username, password });
+//       try {
+//         await updateUserFile(users);
+//         message.textContent = "Signup successful!";
+//       } catch (error) {
+//         message.textContent = `Error: ${error.message}`;
+//       }
+//     }
+//   });
+
+// Login event
+// loginForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const username = document.getElementById("loginUsername").value;
+//   const password = document.getElementById("loginPassword").value;
+
+//   const users = await fetchUsers();
+//   const user = users.find(
+//     (user) => user.username === username && user.password === password
+//   );
+
+//   if (user) {
+//     message.textContent = "Login successful!";
+//   } else {
+//     message.textContent = "Invalid username or password.";
+//   }
+// });
+
+//   const users = await response.json();
+//   return users;
+// }
+
+// // Get the current file SHA for updating
+// async function getFileSha() {
+//   const response = await fetch(
+//     `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+//     {
+//       headers: {
+//         Authorization: `token ${token}`,
+//       },
+//     }
+//   );
+//   const data = await response.json();
+//   return data.sha;
+// }
+
+// // Update the JSON file on GitHub
+// async function updateUserFile(updatedUsers) {
+//   const sha = await getFileSha();
+//   const content = btoa(JSON.stringify(updatedUsers, null, 2));
+
+//   const response = await fetch(
+//     `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+//     {
+//       method: "PUT",
+//       headers: {
+//         Authorization: `token ${token}`,
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         message: "Update users.json",
+//         content: content,
+//         sha: sha,
+//         branch: branch,
+//       }),
+//     }
+//   );
+
+//   if (!response.ok) {
+//     throw new Error("Failed to update file on GitHub");
+//   }
+// }
+
+// // Signup event
+// signupForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const username = document.getElementById("email").value;
+//   const password = document.getElementById("password").value;
+
+//   const users = await fetchUsers();
+//   const userExists = users.some((user) => user.username === username);
+
+//   if (userExists) {
+//     message.textContent = "User already exists.";
+//   } else {
+//     users.push({ username, password });
+//     try {
+//       await updateUserFile(users);
+//       message.textContent = "Signup successful!";
+//     } catch (error) {
+//       message.textContent = `Error: ${error.message}`;
+//     }
+//   }
+// });
+
+// Login event
+// loginForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const username = document.getElementById("loginUsername").value;
+//   const password = document.getElementById("loginPassword").value;
+
+//   const users = await fetchUsers();
+//   const user = users.find(
+//     (user) => user.username === username && user.password === password
+//   );
+
+//   if (user) {
+//     message.textContent = "Login successful!";
+//   } else {
+//     message.textContent = "Invalid username or password.";
+//   }
+// });
+// }
 
 //############saving the data in JSON file###################
 

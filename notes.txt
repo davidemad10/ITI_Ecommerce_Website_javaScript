@@ -1,0 +1,5 @@
+
+// make file calles .gitignore => put in this file the file i dont want to push it in girhub (EX, .env)
+// because of security in the file (like access token, ...)
+// in ,env file (we put the )
+//
