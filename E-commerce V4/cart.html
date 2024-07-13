@@ -10,6 +10,7 @@
 
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="cart.css" />
     <script src="main.js" defer></script>
     <script src="slider.js" defer></script>
     <script src="cart.js" defer></script>
@@ -20,12 +21,11 @@
     <div class="container">
         <header>
             <nav class="navbar">
-                <section class="nav-first">
+                <!-- <section class="nav-first">
                     <svg class="menu-icon" width="16" height="15" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd" />
                     </svg>
                     <div class="logo">
-                        <!-- <img src="images/logo.svg" alt="sneakers logo" /> -->
                     </div>
                     <div class="backdrop"></div>
                     <div class="nav-links">
@@ -56,9 +56,8 @@
                         </div>
                     </div>
                     <div class="avatar">
-                        <!-- <img src="images/image-avatar.png" alt="avatar" /> -->
                     </div>
-                </section>
+                </section> -->
             </nav>
         </header>
 
@@ -80,10 +79,20 @@
 
 
 
-            <h1>Shopping Cart</h1>
-            <div id ="cart-items" class="cart-items"></div>
+            <!-- <h1>Shopping Cart</h1>
+            <div id="cart-items" class="cart-items"></div>
             <div id="total-price">$0.00</div>
-            <button class="checkout">Checkout</button>
+            <button class="checkout">Checkout</button> -->
+
+            <div id="cart-container">
+                <h2>Your Cart</h2>
+                <div id="cart-items" class="cart-items"></div>
+                <div id="total-price-container">
+                    <strong>Total: </strong><span id="total-price">$0.00</span>
+                </div>
+                <button class="checkout">Checkout</button>
+            </div>
+
 
             <script src="cart.js"></script>
 

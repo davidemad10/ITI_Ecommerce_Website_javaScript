@@ -1,24 +1,16 @@
 'use strict';
 /* fetch the data */
-const singleProductApiUrl = 'https://dummyjson.com/products/3';
-var productData = {};
-var productTitle;
-var productPrice;
-var productDescription;
-var productImage;
-var productBrand;
-var productDiscountPercentage;
-var productStock;
-var productImages;
-var productThumbnails;
-
-
-var category
-var price
-var discountPercentage
-var rating
-var stock
-
+const singleProductApiUrl = 'https://dummyjson.com/products/22';
+let productData = {};
+let productTitle;
+let productPrice;
+let productDescription;
+let productImage;
+let productBrand;
+let productDiscountPercentage;
+let productStock;
+let productImages;
+let productThumbnails;
 
 document.addEventListener('DOMContentLoaded', () => {
     // function fetchData(productId) {

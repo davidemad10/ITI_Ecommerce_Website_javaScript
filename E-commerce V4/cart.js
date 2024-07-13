@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderCartItems = () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    console.log("Cart Items from Local Storage:", cartItems); // Debugging
     cartItemsContainer.innerHTML = "";
 
     if (cartItems.length === 0) {
@@ -35,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div>${item.name}</div>
             <div>
               <p>
-                $${item.price.toFixed(2)} x ${item.quantity} 
+                $${item.price.toFixed(2)} x 
+                <input type="number" class="quantity-input" value="${item.quantity}" min="1">
                 <span class='total-price'>$${(item.price * item.quantity).toFixed(2)}</span>
               </p>
             </div>
@@ -57,11 +57,30 @@ document.addEventListener("DOMContentLoaded", () => {
           const cartItem = event.target.closest(".cart-item");
           removeItemFromCart(cartItem);
         });
+
+        const quantityInput = cartItem.querySelector(".quantity-input");
+        quantityInput.addEventListener("change", (event) => {
+          const newQuantity = parseInt(event.target.value);
+          updateItemQuantity(item.name, newQuantity);
+        });
       });
 
       checkoutButton.classList.remove("empty");
       totalPriceContainer.textContent = `$${calculateTotalPrice()}`;
     }
+  };
+
+  const updateItemQuantity = (itemName, newQuantity) => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const updatedCartItems = cartItems.map(item => {
+      if (item.name === itemName) {
+        item.quantity = newQuantity;
+      }
+      return item;
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    renderCartItems();
   };
 
   const removeItemFromCart = (cartItem) => {

@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviewRating = document.getElementById('review-rating');
     const reviewText = document.getElementById('review-text');
 
-    // format the date
+    
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
 
-    // Function to create a review element
+    
     function createReviewElement(review) {
         const reviewElement = document.createElement('div');
         reviewElement.classList.add('review');
@@ -24,20 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return reviewElement;
     }
 
-    // Fetch product details and reviews
-    fetch('https://dummyjson.com/products/1')
+    
+    fetch('https://dummyjson.com/products/22')
         .then(response => response.json())
         .then(data => {
-            // Display product details (omitted for brevity)
+            
 
-            // Display existing reviews
+            
             data.reviews.forEach(review => {
                 const reviewElement = createReviewElement(review);
                 reviewsContainer.appendChild(reviewElement);
             });
         });
 
-    // Handle new review submission
+    
     reviewForm.addEventListener('submit', event => {
         event.preventDefault();
 
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newReviewElement = createReviewElement(newReview);
         reviewsContainer.appendChild(newReviewElement);
 
-        // Clear the form fields
+        
         reviewRating.value = '';
         reviewText.value = '';
         reviewerName.value = '';
