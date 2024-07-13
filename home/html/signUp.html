@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signUP</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@125,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/signUp.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 id="h1">BASMADness</h1>
+        <h3 id="h3">S I G N U P</h3>
+        
+        <form id="signupForm">
+          <div class="box">
+            <label for="firstName">First Name:</label>
+            <br />
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter your First Name"
+              required
+            />
+            <span id="firstNameError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="lastName">Last Name:</label>
+            <br />
+            <i class="fa-solid fa-user-tie"></i>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter your Last Name"
+              required
+            />
+            <span id="lastNameError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="email">Email:</label>
+            <br />
+            <i class="fa-solid fa-at"></i>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@example.com"
+              required
+            />
+            <span id="emailError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="gender">Gender:</label>
+            <br />
+            <i class="fa-solid fa-venus-mars"></i>
+            <select name="gender" id="gender">
+              <option value="" selected disabled>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <span id="genderError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="birthday">Birthday:</label>
+            <br />
+            <i class="fa-solid fa-calendar-days"></i>
+            <input type="date" id="birthday" name="birthday" required />
+            <span id="birthdayError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="city">City:</label>
+            <br />
+            <i class="fa-solid fa-city"></i>
+            <select id="city" name="city" required>
+              <option value="" selected disabled>Select City</option>
+              <option value="alexandria">Alexandria</option>
+              <option value="cairo">Cairo</option>
+              <option value="redSea">RedSea</option>
+              <option value="suis">Suis</option>
+              <option value="elMenia">ElMenia</option>
+              <option value="tanta">Tanta</option>
+              <option value="fayoum">Fayoum</option>
+              <option value="luxor">Luxor</option>
+              <option value="aswan">Aswan</option>
+              <option value="portsaid">Portsaid</option>
+              <option value="ismilia">Ismilia</option>
+            </select>
+            <span id="cityError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="password">Password:</label>
+            <br />
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your Password"
+              required
+            />
+            <span id="passwordError" class="error-message"></span>
+          </div>
+
+          <div class="box">
+            <label for="repeatPassword">Confirm Password:</label>
+            <br />
+            <i class="fa-solid fa-repeat"></i>
+
+            <input
+              type="password"
+              id="repeatPassword"
+              name="repeatPassword"
+              placeholder="confirm your Password"
+              required
+            />
+            <span id="repeatPasswordError" class="error-message"></span>
+          </div>
+
+          <div class="last">
+            <input type="checkbox" id="terms" name="terms" required />
+            <label>I accept the terms and conditions</label>
+          </div>
+          <p id="message"></p>
+          <br />
+          <button type="submit" id="registerButton">Register</button>
+        </form>
+      </div>
+      <p class="already">
+        already have an Account <a href="../html/signIn.html">SignIn</a>
+      </p>
+    </section>
+    <script src="../scripts/signUp.js"></script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+body {
+  background: rgb(176, 166, 149);
+  background: linear-gradient(
+    180deg,
+    rgba(176, 166, 149, 1) 0%,
+    rgba(235, 227, 213, 1) 31%,
+    rgba(243, 238, 234, 1) 100%
+  );
+}
+.section {
+  width: 50%;
+  height: 80vh;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  align-items: center;
+  text-align: center;
+  padding: 5rem;
+  border: 0.5px solid rgb(223, 203, 179);
+  border-radius: 15px;
+  color: rgb(104, 78, 40);
+}
+
+.section:hover {
+  box-shadow: 0px 0px 20px 20px #ffedc8;
+  width: 51%;
+  height: 81vh;
+  transition: 0.5s;
+}
+
+h1 {
+  font-family: "Baskervville SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  margin: 10px;
+  font-size: 25px;
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 1px;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+}
+
+.section .container {
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  padding: 1rem;
+}
+
+#signupForm {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 90%;
+}
+
+#loginForm {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 90%;
+}
+
+.box {
+  border: 0.5px solid rgb(223, 203, 179);
+  border-radius: 3rem;
+  width: 45%;
+  height: 4.6rem;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 10px;
+  text-align: center;
+  display: block;
+}
+
+.box label {
+  font-size: 18px;
+  font-weight: 100;
+  font-family: "Baskervville SC", serif;
+}
+
+.box input,
+select {
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  background: none;
+  border: 0px;
+  padding: 0.25rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(153, 122, 77);
+  font-size: 16px;
+}
+
+.box:hover {
+  width: 46%;
+  height: 4.5rem;
+  transition: 0.5s;
+  box-shadow: 5px 7px #66522d;
+}
+
+select:focus {
+  border: 0px 0 0 1px solid rgb(235, 199, 147);
+  outline: none;
+}
+
+input:focus {
+  border: 0px;
+  border-right: 10px solid #66522d;
+  border-radius: 0px;
+  background-color: rgb(148, 138, 121, 0.4);
+  outline: none;
+}
+
+#terms {
+  cursor: pointer;
+}
+
+.last {
+  width: 100%;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  color: rgb(104, 78, 40);
+  text-align: center;
+  padding: 0px 10px;
+}
+
+#message {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: 100;
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+#registerButton {
+  width: 14rem;
+  height: 2.5rem;
+  padding: 0;
+  background-color: #534428;
+  border: 1px solid rgb(153, 122, 77);
+  border-radius: 5rem;
+  color: white;
+  font-size: 16px;
+  font-family: "Inconsolata", monospace;
+  cursor: pointer;
+}
+
+#registerButton:hover {
+  box-shadow: 0px 0px 15px 10px #f0dab3;
+  width: 14.5rem;
+  height: 3.25rem;
+  transition: 0.5s;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.already {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.already a {
+  color: #0e0b07;
+}
+
+.already a:hover {
+  color: #7c5521;
+  box-shadow: 0px 0px 15px 3px #a38a5e;
+  transition: 0.25s;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .section {
+    width: 70%;
+    padding: 1.5rem;
+    height: 90vh;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 11px;
+  }
+#signupForm{
+  margin-top: 1rem;
+}
+
+  .box {
+    width: 40%;
+    /* height: auto; */
+    overflow: hidden;
+  }
+  .box label{
+    font-size: 11px;
+  }
+  .box i{
+    font-size: 5px;
+  }
+
+  .box input,
+  select {
+    width: 70%;
+    font-size: 7px;
+    overflow: hidden;
+  }
+  .last{
+    font-size: 14px;
+  }
+  #registerButton {
+    width: 12rem;
+    height: 2.25rem;
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .already{
+    margin-top: 0px;
+    font-size: 14px;
+  }
+}
