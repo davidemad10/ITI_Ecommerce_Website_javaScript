@@ -307,7 +307,7 @@ document
       messageElement.style.color = "green";
       messageElement.style.display = "block";
 
-      // Redirect to home page after 5 seconds
+      // Redirect to home page after 2 seconds
       setTimeout(() => {
         window.location.href = "home.html";
       }, 2000); // 2000 milliseconds = 2 seconds
