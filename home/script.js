@@ -1,7 +1,92 @@
+// Fetching the Header, Nav Bar and Footer
+
+document.addEventListener('DOMContentLoaded', () => {
+  const headerPH = document.getElementById('headerPH');
+  const logoPH = document.getElementById('logoPH');
+  const navPH = document.getElementById('navPH');
+  const footerPH = document.getElementById('footerPH');
+
+  fetch('HNF.html')
+    .then((response) => response.text())
+    .then((data) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+
+      const header = doc.querySelector('header');
+      const logo = doc.querySelector('.logo');
+      const nav = doc.querySelector('nav');
+      const footer = doc.querySelector('footer');
+
+      if (header) headerPH.innerHTML = header.innerHTML;
+      if (logo) logoPH.innerHTML = logo.innerHTML;
+      if (nav) navPH.innerHTML = nav.innerHTML;
+      if (footer) footerPH.innerHTML = footer.innerHTML;
+    })
+    .catch((error) => console.error('Error fetching HNF.html:', error));
+});
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+document.addEventListener('DOMContentLoaded', () => {
+  const binId = "66913e9cad19ca34f8869592";
+  const masterKey = "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
+  const apiUrl = 'https://api.jsonbin.io/v3/b/${binId}';
+
+  const registerButton = document.getElementById('register');
+  const loginButton = document.getElementById('login');
+  const logoutButton = document.getElementsByClassName('logout');
+
+  async function fetchLogin() {
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "X-Master-Key": masterKey,
+        },
+      });
+      const data = await response.json();
+      return data.record || []; // Ensure it returns an array
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];
+    }
+  }
+  async function checkLogin(email, password) {
+    const loginData = fetchLogin();
+    const user = loginData.find(user => user.email == email && user.password == password);
+
+    if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      updateUI(true);
+    } else {
+      console.log('Invalid Login');
+    }
+  }
+
+  function updateUI(isLoggedIn) {
+    if (isLoggedIn) {
+      registerButton.style.display = 'none';
+      loginButton.style.display = 'none';
+      logoutButton.style.display = 'block';
+    } else {
+      registerButton.style.display = 'block';
+      loginButton.style.display = 'block';
+      logoutButton.style.display = 'none';
+    }
+  }
+
+  loginButton.addEventListener('click', () => {
+    
+  });
+});
+
+
+
+// Fetch all products and store them in allProducts array
+
 let allProducts = [];
 let currentIndex = 0;
 
-// Fetch all products and store them in allProducts array
 async function fetchProducts() {
   let limit = 100;
   let skip = 0;
@@ -70,27 +155,24 @@ document.addEventListener('DOMContentLoaded', function () {
     catInfo.innerHTML = '';
     for (let i = 0; i < visibleCats; i++) {
       const catIndex = (startIndex + i) % totalCats;
-      // console.log("CatIndex is : " + catIndex)
       catInfo.appendChild(cats[catIndex]);
-      // console.log(catInfo)
     }
   }
 
   document.querySelector('.left').addEventListener('click', function () {
     startIndex = (startIndex - 1 + totalCats) % totalCats;
-    // console.log("StartIndex from left is :" + startIndex);
     updateVisibleCats ();
   });
 
   document.querySelector('.right').addEventListener('click', function () {
     startIndex = (startIndex + 1) % totalCats;
-    // console.log("StartIndex from right is :" + startIndex);
     updateVisibleCats();
   });
 
   updateVisibleCats()
 });
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetching the products in a certain Category when selected from the homepgae
 
@@ -104,70 +186,84 @@ document.querySelectorAll('.category a, .category').forEach(link => {
   });
 });
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // Fetching products to list on the Explore Products Section
+
+let currentPage = 1;
+const itemsPerPage = 8;
+let productsData = [];
 
 function exploreProducts() {
   fetch('https://dummyjson.com/products')
     .then(res => res.json())
     .then((data) => {
-      const productContainer = document.querySelector('.product-info');
-      productContainer.innerHTML = '';
-      const cartCountSpan = document.querySelector('.cart-count');
-      let totalCartCount = 0;
-
-      data.products.forEach((product) => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
-          <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
-          <div class="card-body">
-            <h6 class="card-title">${product.title}</h6>
-            <div class="rating">
-              <span class="price">$${product.price}</span>
-              ${generateStars(product.rating)}
-              <span class="rates">(${product.rating})</span>
-            </div>
-            <div class="count-div">
-              <button class="subtract">-</button>
-              <span class="count">0</span>
-              <button class="add">+</button>
-              <a href="#" class="btn btn-light add-to-cart">Add to Cart</a>
-            </div>
-          </div>
-        `;
-        productContainer.appendChild(card);
-
-        // Adding the count and add to cart methods
-        const addButton = card.querySelector('.add');
-        const subButton = card.querySelector('.subtract');
-        const addToCartButton = card.querySelector('.add-to-cart');
-        const countSpan = card.querySelector('.count');
-        let count = 0;
-
-        addButton.addEventListener('click', () => {
-          count++;
-          countSpan.textContent = count;
-        });
-
-        subButton.addEventListener('click', () => {
-          if (count > 0) {
-            count--;
-            countSpan.textContent = count;
-          }
-        });
-
-        addToCartButton.addEventListener('click', (event) => {
-          event.preventDefault();
-          if (count > 0) {
-            addToCart(product, count);
-            totalCartCount += count;
-            cartCountSpan.textContent = totalCartCount;
-            count = 0;
-            countSpan.textContent = count;
-          }
-        });
-      });
+      productsData = data.products;
+      ShowProductsPerPage();
     });
+}
+
+function ShowProductsPerPage() {
+  const productContainer = document.querySelector('.product-info');
+  productContainer.innerHTML = '';
+  const cartCountSpan = document.querySelector('.cart-count');
+  let totalCartCount = 0;
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const productsToShow = productsData.slice(startIndex, endIndex);
+
+  productsToShow.forEach((product) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
+      <div class="card-body">
+        <h6 class="card-title">${product.title}</h6>
+        <div class="rating">
+          <span class="price">$${product.price}</span>
+          ${generateStars(product.rating)}
+          <span class="rates">(${product.rating})</span>
+        </div>
+        <div class="count-div">
+          <button class="subtract">-</button>
+          <span class="count">0</span>
+          <button class="add">+</button>
+          <a href="#" class="btn btn-light add-to-cart">Add to Cart</a>
+        </div>
+      </div>
+    `;
+    productContainer.appendChild(card);
+
+    const addButton = card.querySelector('.add');
+    const subButton = card.querySelector('.subtract');
+    const addToCartButton = card.querySelector('.add-to-cart');
+    const countSpan = card.querySelector('.count');
+    let count = 0;
+
+    addButton.addEventListener('click', () => {
+      count++;
+      countSpan.textContent = count;
+    });
+
+    subButton.addEventListener('click', () => {
+      if (count > 0) {
+        count--;
+        countSpan.textContent = count;
+      }
+    });
+
+    addToCartButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (count > 0) {
+        addToCart(product, count);
+        totalCartCount += count;
+        cartCountSpan.textContent = totalCartCount;
+        count = 0;
+        countSpan.textContent = count;
+      }
+    });
+  });
 }
 
 function generateStars(rating) {
@@ -186,11 +282,21 @@ function generateStars(rating) {
 }
 
 function addToCart(product, count) {
-  // Implement the logic to add the product and count to the cart
   console.log(`Added ${count} of ${product.title} to cart`);
 }
 
-// Call the function to explore products when the page loads
+document.querySelector('.left1').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    ShowProductsPerPage();
+  }
+});
+
+document.querySelector('.right1').addEventListener('click', () => {
+  if (currentPage * itemsPerPage < productsData.length) {
+    currentPage++;
+    ShowProductsPerPage();
+  }
+});
+
 document.addEventListener('DOMContentLoaded', exploreProducts);
-
-

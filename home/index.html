@@ -9,77 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="header">
-        <div class="adv">Welcome to BASMADness Marketplace!</div>
-        <div class="dropdown">
-            <button class="btn dropdown-toggle toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Language
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">English</a></li>
-              <li><a class="dropdown-item" href="#">Arabic</a></li>
-            </ul>
-          </div>
+    <header id="headerPH">
     </header>
-    <div class="logo">BASMADness</div>
-    <nav>
-        <ul class="nav nav-underline">
-            <li class="nav-item">
-              <a class="nav-link act" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Offers</a>
-            </li>
-          </ul>
-        <div class="search">
-            <input type="search" name="search" id="search" placeholder="What are you looking for?">
-        </div>
-        <button type="button" class="btn btn-light">Register</button>
-        <button type="button" class="btn btn-light">Login</button>
-        <a href="https://www.google.com" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-            <sup><span class="cart-count"></span></sup>
-          </svg>
-        </a>
-        <button class="btn btn-link dropdown-toggle toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-          </svg>
-        </button>
-        <ul class="dropdown-menu">
-          <li class="profile"><a class="dropdown-item" href=""><span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-            </svg>
-          </span>Manage My Profile</a></li>
-          <li class="profile"><a class="dropdown-item" href="#"><span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2-heart" viewBox="0 0 16 16">
-              <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
-              <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
-            </svg>
-          </span>My Order</a></li>
-          <li class="profile"><a class="dropdown-item" href="#"><span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-            </svg>
-          </span>My Cancellations</a></li>
-          <li class="profile"><a class="dropdown-item" href="#"><span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-              <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-            </svg>
-          </span>My Reviews</a></li>
-          <li class="profile"><a class="dropdown-item" href="#"><span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-              <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-            </svg>
-          </span>Logout</a></li>
+    <div class="logo" id="logoPH"></div>
+    <nav id="navPH">
     </nav>
     <section class="first-section">
       <aside>
@@ -201,10 +134,10 @@
           <div class="explore">
             <h2> Explore Our Products</h2>
             <div class="directions">
-              <button class="left">
+              <button class="left1">
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <button class="right">
+              <button class="right1">
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -231,63 +164,8 @@
       </div>
     </section>
     <section class="fourth-section"></section>
-    <footer class="footer-section">
-      <div class="container">
-          <div class="row mb-4">
-              <div class="col-md-3 mb-5">
-                  <h3>Quick Link</h3>
-                  <ul class="list-unstyled link">
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Terms &amp; Conditions</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Help</a></li>
-                      <li><a href="#">Rooms</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-3 mb-5">
-                  <h3>Support</h3>
-                  <ul class="list-unstyled link">
-                      <li><a href="#">Our Location</a></li>
-                      <li><a href="#">The Hosts</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Contact</a></li>
-                      <li><a href="#">Restaurant</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-3 pr-md-5 contact-info">
-                  <h3>Contact Info</h3>
-                  <p><span class="d-block">Address:</span> <span> 98 West 21th Street, Suite 721 New York NY 10016</span></p>
-                  <p><span class="d-block">Phone:</span> <span> (+1) 435 3533</span></p>
-                  <p><span class="d-block">Email:</span> <span> info@yourdomain.com</span></p>
-              </div>
-              <div class="col-md-3 mb-5">
-                  <h3>Subscribe</h3>
-                  <p>Sign up for our newsletter</p>
-                  <form action="#" class="footer-newsletter">
-                      <div class="form-group">
-                          <input type="email" class="form-control" placeholder="Your email...">
-                          <button type="submit" class="btn btn-light">Subscribe</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-          <div class="row bordertop text-center pt-5">
-              <p class="col-md-12 copy">
-              Copyright ©
-              <script>
-                  document.write(new Date().getFullYear());
-              </script> All rights reserved | This website is Powered by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">BASMADness</a>
-              </p>
-              <p class="col-md-12 social">
-                  <a href="#"><span class="fa-brands fa-facebook"></span></a>
-                  <a href="#"><span class="fa-brands fa-twitter"></span></a>
-                  <a href="#"><span class="fa-brands fa-instagram"></span></a>
-                  <a href="#"><span class="fa-brands fa-linkedin"></span></a>
-                  <a href="#"><span class="fa-brands fa-youtube"></span></a>
-              </p>
-          </div>
-      </div>
-  </footer>
+    <footer class="footer-section" id="footerPH">
+    </footer>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
