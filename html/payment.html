@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/payment.css" />
+    <title>Account</title>
+  </head>
+  <body>
+    <section class="mainSection">
+      <div class="Homedive">
+        <div>
+          <p class="Homedive-p">Home/<span>My Account</span></p>
+        </div>
+        <div>
+          <p style="padding-right: 6vw">
+            Welcome<span style="color: #8c5600" id="welcome-message"></span>
+          </p>
+        </div>
+      </div>
+      <div class="bodydive">
+        <div id="left-div">
+          <div>
+            <div class="left-div1">
+              <h3>Manage My Account</h3>
+            </div>
+            <div class="left-div2">
+              <a
+                href="http://127.0.0.1:5500/html/profile.html"
+                class="myProfile-btn"
+                >My profile</a
+              >
+              <a
+                href="http://127.0.0.1:5500/html/payment.html"
+                class="mypayment-btn"
+                >My payment</a
+              >
+              <a href="#" class="myorder-btn">My Order</a>
+            </div>
+          </div>
+        </div>
+        <section class="paymentSection">
+          <h2 style="color: #544a3b">Please select your payment method</h2>
+          <div class="mainPayment">
+            <div class="Paypal">
+              <img src="/html/icons/pngtree.png" id="Paypal" />
+            </div>
+            <div class="Visa">
+              <img src="/html/icons/Visa-Mastercard-1-1024x378.png" id="visa" />
+            </div>
+            <div class="cash">
+              <img
+                src="/html/icons/cash-on-delivery-logo-free-png.webp"
+                id="cash"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <script src="/scripts/payment.js"></script>
+  </body>
+</html>

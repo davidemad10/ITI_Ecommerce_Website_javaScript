@@ -1,0 +1,148 @@
+body{
+    background-color: #F3EEEA;
+}
+.Homedive{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vh;
+    padding-top: 10vh;
+}
+.Homedive-p{
+    color: rgb(52, 52, 52,0.5);
+    padding-left: 5.8vw ;
+}
+.Homedive-p span{
+    color: #8c5600;
+}
+.bodydive{
+    display: grid; 
+    grid-template-columns: 1fr 3fr; 
+    column-gap: 10vw
+}
+form{
+    margin-top: 10vh;
+}
+.formdiv{
+    background-color: #EBE3D5;
+    margin-bottom: 16px;
+    display: inline-block;
+    height: 90vh;
+    width: 60vw;
+    margin-top: 5vh;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+.mainh3{
+    font-family:'Poppins';
+    font-weight: 500;
+    font-size: 3vw;
+    color: #544a3b;
+    margin-left: 5vw;
+}
+.firstdiv-form , .seconddiv-form , .thirddiv-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-right: 60px;
+}
+.gender-div{
+    padding-top: 20px;
+}
+
+.firstName-div label , .lastName-div label ,.email-div label , .address-div label , .birthday-div label , .gender-div label{
+    display: block;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 3vh;
+    line-height: 1.5;
+    color: rgba(0,0,0,1);
+    padding-left: 1vw;
+}
+.lastName-div input , .firstName-div input , .email-div input,.address-div input , .birthday-div input , .male-div input , .female-div input{
+    display: inline-block;
+    background-color: #F3EEEA;
+    padding: 2vh;
+    border: none;
+    padding-right: 7vw;
+    font-size: 16px;
+    border-radius: 22px;
+}
+
+.savechanges-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh;
+    margin-right: 5vw;
+}
+.savechanges{
+    display: flex; 
+    justify-content: end;
+    margin-top: 17vh;
+}
+.savechanges .save{
+    background-color:  #544a3b ;
+    color: white;
+    border: none;
+    padding: 2.5vh 3.5vw;
+    border-radius: 4px;
+}
+.savechanges button{
+    cursor:pointer;
+    margin-left: 0.5vw;
+}
+.savechanges .save:hover{
+    background-color: #60584b;
+    transition: background-color 0.5s;  
+}
+.savechanges .save:active{
+    background-color: #635a4cb3;
+}
+
+
+
+/* left div */
+.left-div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5vh;
+}
+.left-div2{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    padding-left: 5.5vw;
+}
+.left-div2 a{
+    display: block;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.myProfile-btn:hover,
+.mypayment-btn:hover,
+.myorder-btn:hover {
+    color: #845407;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
