@@ -36,23 +36,25 @@ document
       existingData = [];
     }
 
-    // Check if user with the same email and password exists
-    const userExists = existingData.some(
+    // Find user with the same email and password
+    const loggedInUser = existingData.find(
       (user) => user.email === email && user.password === password
     );
 
     const messageElement = document.getElementById("message");
 
-    if (userExists) {
+    if (loggedInUser) {
       messageElement.textContent = "Login successful.";
       messageElement.style.color = "green";
 
-      // Redirect to home page after 5 seconds
+      // Save the logged-in user's data to localStorage
+      const loggedInUserJSON = JSON.stringify(loggedInUser);
+      localStorage.setItem("loggedInUser", loggedInUserJSON);
+
+      // Redirect to home page after 2 seconds
       setTimeout(() => {
         window.location.href = "home.html";
       }, 2000); // 2000 milliseconds = 2 seconds
-
-
     } else {
       messageElement.textContent = "Email or password is incorrect.";
       messageElement.style.color = "red";
