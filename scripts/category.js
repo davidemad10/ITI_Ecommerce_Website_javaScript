@@ -46,14 +46,13 @@ fetch(`https://dummyjson.com/products/category/${category}`)
                           <p>Price: $${product.price}</p>
                           <p>Category: ${product.category}</p>
                           <div class="rating">${generateStars(product.rating)}</div>
-                            <p>Stock: ${product.stock}</p>
+                          <p>Stock: ${product.stock}</p>
                         </div>
                       </div>
-                      <div class="addToCard">
-                        <button><img src="/html/icons/download.png"/><span>Add To Card</span></button>
+                      <div class="addToCart">
+                        <button><img src="/html/icons/download.png"/><span>Add To Cart</span></button>
                       </div>
                     </div>
-
                 `;
     dataDiv.appendChild(productDiv);
     });

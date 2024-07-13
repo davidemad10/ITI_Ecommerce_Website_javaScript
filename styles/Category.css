@@ -102,7 +102,7 @@ body {
 .product-description:hover{
     color: purple;
 }
-.addToCard {
+.addToCart {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -110,7 +110,7 @@ body {
     margin-left: 13vw;
 }
 
-.addToCard button {
+.addToCart button {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -124,7 +124,7 @@ body {
     min-height: 7vh;
 }
 
-.addToCard button img {
+.addToCart button img {
     width: 20px; 
     margin-right: 10px; 
 }
