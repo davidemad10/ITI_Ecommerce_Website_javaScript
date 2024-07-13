@@ -4,10 +4,11 @@ const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 // Redirect to login page if no user data found
 document.addEventListener("DOMContentLoaded", function () {
-  // if (!loggedInUser) {
-  //     window.location.href = '/login.html';
-  //     return;
-  // }
+  if (!loggedInUser) {
+    window.location.href = "/home/html/signIn.html";
+    console.log("this is ay klam");
+    return;
+  }
 
   // Set welcome message
   const userName = loggedInUser.firstName;
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   firstName.value = loggedInUser.firstName;
   lastName.value = loggedInUser.lastName;
   email.value = loggedInUser.email;
-  address.value = loggedInUser.address;
+  address.value = loggedInUser.city;
   birthday.value = loggedInUser.birthday;
 });
 
