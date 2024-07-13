@@ -29,14 +29,14 @@ body {
 
 /* End Body Styling */
 
-.header, .logo, nav, main, footer
+#headerPH, .logo, nav, main, footer
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 /* Start Header Style */
-.header {
+#headerPH {
     grid-area: header;
     background-color: var(--hd-ft-color);
     grid-column: span 8;
@@ -393,6 +393,16 @@ article .container .row {
     margin-bottom: 1rem;
     padding: 0;
     color: var(--hd-ft-color);
+}
+.left1, .right1 {
+    background-color: var(--bg-color);
+    color: var(--hd-ft-color);
+    padding: 5px 8px;
+    border: 0.5px solid #776B5D;
+}
+.left1:hover, .right:hover1 {
+    background-color: #B0A695;
+    color: var(--bg-color);
 }
 .third-section .product-info {
     display: flex;
