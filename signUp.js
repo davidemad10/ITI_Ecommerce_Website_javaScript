@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       repeatPasswordError.textContent =
         "Password and repeat password should be the same";
       repeatPasswordError.style.display = "block";
-      repeatPasswordInput.select();
+      // repeatPasswordInput.select();
       repeatPasswordInput.style.backgroundColor = "transparent";
       repeatPasswordInput.style.borderBottom = "solid 0.3px red";
     } else {
@@ -210,24 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //   localStorage.setItem("birthday", birthday);
 //   localStorage.setItem("city", city);
 //   localStorage.setItem("password", password);
-
-//   const formData = new FormData(signupForm);
-//   const data = Object.fromEntries(formData);
-
-//   console.log(data);
-//   const jsonData = JSON.stringify(data);
-
-//   fetch("https://api.jsonbin.io/v3/b/66913e9cad19ca34f8869592", {
-//     method: "POST",
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//     body: jsonData,
-//   })
-//     .then((res) => res.json())
-//     .then((result) => console.log(result.data))
-//     .catch((err) => console.log(err));
-// }
 
 const binId = "66913e9cad19ca34f8869592";
 const masterKey =
@@ -315,21 +297,18 @@ document
       // Update the data on jsonbin.io using PUT
       await updateData(existingData);
 
-      // Optional: Update local storage
-      localStorage.setItem("firstName", firstName);
-      localStorage.setItem("lastName", lastName);
-      localStorage.setItem("email", email);
-      localStorage.setItem("gender", gender);
-      localStorage.setItem("birthday", birthday);
-      localStorage.setItem("city", city);
-      localStorage.setItem("password", password);
+      // Convert the newData object to a JSON string
+      const newDataJSON = JSON.stringify(newData);
+
+      // Save the JSON string to localStorage
+      localStorage.setItem("userData", newDataJSON);
 
       messageElement.textContent = "User added successfully.";
       messageElement.style.color = "green";
       messageElement.style.display = "block";
     }
   });
-//#############################################################3
+//########################github hosted api logic#####################################3
 
 // const signupForm = document.getElementById("signupForm");
 // const loginForm = document.getElementById("loginForm");

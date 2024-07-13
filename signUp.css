@@ -120,7 +120,6 @@ select {
 select:focus {
   border: 0px 0 0 1px solid rgb(235, 199, 147);
   outline: none;
-
 }
 
 input:focus {
@@ -131,8 +130,8 @@ input:focus {
   outline: none;
 }
 
-#terms{
-    cursor: pointer;
+#terms {
+  cursor: pointer;
 }
 
 .last {
@@ -144,15 +143,14 @@ input:focus {
   padding: 0px 10px;
 }
 
-#message{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align:center;
+#message {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
   font-weight: 100;
   width: 100%;
   margin: 0px;
   margin-bottom: 5px;
 }
-
 
 #registerButton {
   width: 14rem;
@@ -193,7 +191,48 @@ input:focus {
 }
 
 .error-message {
-    color: red;
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .section {
+    width: 40%;
+    padding: 1.5rem;
+    height: 90vh;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 11px;
+  }
+#signupForm{
+  margin-top: 3rem;
+}
+
+  .box {
+    width: 30%;
+  }
+  .box label{
+    font-size: 11px;
+  }
+  .box i{
+    font-size: 11px;
+  }
+
+  .box input,
+  select {
+    width: 70%;
+  }
+  #registerButton {
+    width: 12rem;
+    height: 2.25rem;
     font-size: 14px;
-    display: none;
+  }
+  .already{
+    margin-top: 0px;
+  }
 }
