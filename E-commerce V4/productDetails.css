@@ -380,80 +380,6 @@ body {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: none;
 }
-
-/* .cart-container.active {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .cart-title {
-  padding: 25px 20px;
-  font-weight: 700;
-  border-bottom: 1px solid var(--grayish-blue);
-} */
-
-/* .cart .cart-items {
-  padding: 25px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-} */
-
-/* .cart .cart-items.empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 185px;
-  font-weight: 700;
-}
-
-.cart .cart-items.empty .cart-empty {
-  color: var(--grayish-blue);
-  display: inline-block;
-}
-
-.cart .cart-items .cart-empty {
-  display: none;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.cart-item img {
-  height: 50px;
-  border-radius: 5px;
-}
-
-.cart-item {
-  color: var(--dark-grayish-blue);
-}
-
-.cart-item .total-price {
-  color: var(--black);
-  font-weight: 700;
-}
-
-.checkout.empty {
-  display: none;
-} */
-
-/* .checkout {
-  height: 56px;
-  margin: 27px 23px;
-  border: none;
-  color: var(--1);
-  background-color: var(--4);
-  border-radius: 10px;
-  font-weight: 700;
-} */
-
-/* .checkout:hover {
-  cursor: pointer;
-} */
-
 .cart-count {
   cursor: pointer;
   position: absolute;
@@ -470,52 +396,6 @@ body {
   font-size: 12px;
   font-weight: 700;
 }
-
-/* .delete-item {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-#total-price {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #776B5D;
-} */
-
-/* .checkout {
-  background-color: #B0A695; 
-  color: white;
-  font-size: 1em;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-} */
-
-/* .checkout:hover {
-  background-color: #776B5D; 
-} */
-
-/* .checkout.empty {
-  background-color: #ccc;
-  cursor: not-allowed;
-} */
-
-/* .checkout.empty:hover {
-  background-color: #ccc;
-} */
-/* #cart-items {
-  width: 100%;
-  max-width: 70rem;
-  margin-bottom: 20px;
-  background-color: #EBE3D5; 
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
 
 /* /////////comment///////////////// */
 #product-reviews {

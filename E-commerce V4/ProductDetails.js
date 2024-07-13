@@ -1,5 +1,4 @@
 'use strict';
-/* fetch the data */
 const singleProductApiUrl = 'https://dummyjson.com/products/22';
 let productData = {};
 let productTitle;
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            // Save the parsed data into the productData object
             productData = data;
             productTitle = productData.title
             productDescription = productData.description
@@ -39,11 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update the HTML elements with the fetched data
             updateProductDetails();
-
-            // Process the retrieved user data
-            // console.log(productData);
-            console.log(productImages)
-            // console.log(productThumbnails)
         })
         .catch(error => {
             console.error('Error:', error);
@@ -60,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('product-img2').src = productImages;
         const imageUrls = [
             productImages,
-            // productImages,
-            // productImages
-            'https://images.pexels.com/photos/355508/pexels-photo-355508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-            'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg'
+            productImages,
+            productImages
+            // 'https://images.pexels.com/photos/355508/pexels-photo-355508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            // 'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg'
         ];
         const imageContainer = document.getElementById('main-img');
         const imageContainer2 = document.getElementById('main-img2');
@@ -109,10 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
             div.appendChild(img);
             imageContainer2.appendChild(div);
         });
-        // document.getElementsByClassName("productImg").src = productImages;
-        // document.querySelectorAll(".product-img").src = productImages;
-        // document.getElementById('product-thumbnail').src = productThumbnails;
-        // document.getElementById('product-thumbnail2').src = productThumbnails;
     }
 
 })
