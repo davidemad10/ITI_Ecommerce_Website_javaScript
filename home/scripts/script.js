@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
 // document.addEventListener('DOMContentLoaded', () => {
 //   const binId = "66913e9cad19ca34f8869592";
 //   const masterKey = "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
@@ -79,8 +80,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //   });
 // });
+document.addEventListener('DOMContentLoaded', () => {
+  const binId = "66913e9cad19ca34f8869592";
+  const masterKey = "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
+  const apiUrl = 'https://api.jsonbin.io/v3/b/${binId}';
 
+  const registerButton = document.getElementById('register');
+  const loginButton = document.getElementById('login');
+  const logoutButton = document.getElementsByClassName('logout');
 
+  async function fetchLogin() {
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "X-Master-Key": masterKey,
+        },
+      });
+      const data = await response.json();
+      return data.record || []; // Ensure it returns an array
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];
+    }
+  }
+  async function checkLogin(email, password) {
+    const loginData = fetchLogin();
+    const user = loginData.find(user => user.email == email && user.password == password);
+
+    if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      updateUI(true);
+    } else {
+      console.log('Invalid Login');
+    }
+  }
+
+  function updateUI(isLoggedIn) {
+    if (isLoggedIn) {
+      registerButton.style.display = 'none';
+      loginButton.style.display = 'none';
+      logoutButton.style.display = 'block';
+    } else {
+      registerButton.style.display = 'block';
+      loginButton.style.display = 'block';
+      logoutButton.style.display = 'none';
+    }
+  }
+
+  loginButton.addEventListener('click', () => {
+
+  });
+});
 
 // Fetch all products and store them in allProducts array
 
