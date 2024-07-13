@@ -11,6 +11,10 @@ const iconNext = document.querySelector(".icon-next");
 
 let currentImageIndex = 0;
 
+// console.log(mainImages);
+// console.log("Hi")
+// console.log(thumbnails);
+
 const changeImage = (index, mainImages, thumbnails) => {
   mainImages.forEach((img) => {
     img.classList.remove("active");
@@ -18,9 +22,12 @@ const changeImage = (index, mainImages, thumbnails) => {
   thumbnails.forEach((thumb) => {
     thumb.classList.remove("active");
   });
+  console.log("Hi")
   console.log(index);
+  console.log("Hi")
   console.log(mainImages);
-  console.log(thumbnails);
+  console.log("Hi")
+  console.log(mainImages);
 
 
 
@@ -28,6 +35,14 @@ const changeImage = (index, mainImages, thumbnails) => {
   thumbnails[index].classList.add("active");
   currentImageIndex = index;
   console.log(currentImageIndex);
+
+  console.log("Hi")
+  console.log(index);
+  console.log("Hi")
+  console.log(mainImages);
+  console.log("Hi")
+  console.log(mainImages);
+
 };
 
 thumbnails.forEach((thumb, index) => {

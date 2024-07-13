@@ -14,6 +14,7 @@
   <script src="slider.js" defer></script>
   <script src="cart.js" defer></script>
   <script src="ProductDetails.js" defer></script>
+  <script src="producReviews.js" defer></script>
 </head>
 
 <body>
@@ -178,6 +179,32 @@
             <span>Add to cart</span>
           </button>
         </div>
+      </div>
+    </section>
+
+    <section class="comments">
+      <div class="comment-container">
+        <div id="product-reviews">
+          <h2>Customer Reviews</h2>
+          <div id="reviews-container"></div>
+          <form id="review-form">
+            <h3>Leave a Review</h3>
+            <input type="text" id="reviewer-name" placeholder="Your Name" required>
+            <input type="email" id="reviewer-email" placeholder="Your Email" required>
+            <select id="review-rating" required>
+              <option value="">Rate the product</option>
+              <option value="1">1 - Very Poor</option>
+              <option value="2">2 - Poor</option>
+              <option value="3">3 - Average</option>
+              <option value="4">4 - Good</option>
+              <option value="5">5 - Excellent</option>
+            </select>
+            <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+
+
       </div>
     </section>
   </div>

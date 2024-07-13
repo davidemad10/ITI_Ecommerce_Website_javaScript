@@ -477,6 +477,59 @@ body {
   cursor: pointer;
 }
 
+/* /////////comment///////////////// */
+#product-reviews {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #F3EEEA; /* Adjust according to your color palette */
+  border-radius: 10px;
+}
+
+#product-reviews h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #776B5D; /* Adjust according to your color palette */
+}
+
+#reviews-container {
+  margin-bottom: 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #EBE3D5; /* Adjust according to your color palette */
+  border-radius: 5px;
+}
+
+.review-text {
+  margin: 0;
+  color: #776B5D; /* Adjust according to your color palette */
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#review-form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #B0A695; /* Adjust according to your color palette */
+  border-radius: 5px;
+  resize: none;
+}
+
+#review-form button {
+  background-color: #776B5D; /* Adjust according to your color palette */
+  color: #F3EEEA; /* Adjust according to your color palette */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 /* Mobile */
 
 @media (max-width: 755px) {

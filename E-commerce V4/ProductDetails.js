@@ -19,8 +19,11 @@ var discountPercentage
 var rating
 var stock
 
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
+    // function fetchData(productId) {
+    //     const singleProductApiUrl = `https://dummyjson.com/products/${productId}`;
+    // }
     fetch(singleProductApiUrl)
         .then(response => {
             if (!response.ok) {
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             productImages = productData.images;
             productThumbnails = productData.thumbnail;
+
 
             // Update the HTML elements with the fetched data
             updateProductDetails();
@@ -64,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('product-img2').src = productImages;
         const imageUrls = [
             productImages,
+            // productImages,
+            // productImages
             'https://images.pexels.com/photos/355508/pexels-photo-355508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
             'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg'
         ];
