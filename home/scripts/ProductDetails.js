@@ -11,16 +11,18 @@ let productStock;
 let productImages;
 let productThumbnails;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const selectedCategory = localStorage.getItem("selectedCategory");
-  if (selectedCategory) {
-    fetchData(selectedCategory);
-  } else {
-    console.error("No category selected");
-  }
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const selectedCategory = localStorage.getItem("selectedCategory");
+//   if (selectedCategory) {
+//     fetchData(selectedCategory);
+//   } else {
+//     console.error("No category selected");
+//   }
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get('productId');
   function fetchData(productId) {
     const singleProductApiUrl = `https://dummyjson.com/products/${productId}`;
 
@@ -113,15 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imageContainer2.appendChild(div);
     });
   }
-
-  // const selectedCategory = localStorage.getItem("selectedCategory");
-  // if (selectedCategory) {
-  //   fetchData(selectedCategory);
-  // } else {
-  //   console.error("No category selected");
-  // }
-  fetchData(1);
-
+  fetchData(productId);
 })
 
 function getPrice() {
