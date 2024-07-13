@@ -300,12 +300,17 @@ document
       // Convert the newData object to a JSON string
       const newDataJSON = JSON.stringify(newData);
 
-      // Save the JSON string to localStorage
-      localStorage.setItem("userData", newDataJSON);
+      // Save the JSON string to localStorage with the key 'loggedInUser'
+      localStorage.setItem("loggedInUser", newDataJSON);
 
       messageElement.textContent = "User added successfully.";
       messageElement.style.color = "green";
       messageElement.style.display = "block";
+
+      // Redirect to home page after 5 seconds
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 2000); // 2000 milliseconds = 2 seconds
     }
   });
 //########################github hosted api logic#####################################3

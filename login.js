@@ -47,8 +47,12 @@ document
       messageElement.textContent = "Login successful.";
       messageElement.style.color = "green";
 
-      // Redirect to home page (you can replace 'home.html' with the actual home page URL)
-      window.location.href = "home.html";
+      // Redirect to home page after 5 seconds
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 2000); // 2000 milliseconds = 2 seconds
+
+
     } else {
       messageElement.textContent = "Email or password is incorrect.";
       messageElement.style.color = "red";
