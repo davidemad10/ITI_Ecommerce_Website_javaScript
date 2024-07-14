@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviewRating = document.getElementById('review-rating');
     const reviewText = document.getElementById('review-text');
 
-    
+
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
 
-    
+
     function createReviewElement(review) {
         const reviewElement = document.createElement('div');
         reviewElement.classList.add('review');
@@ -24,20 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return reviewElement;
     }
 
-    
-    fetch('https://dummyjson.com/products/22')
-        .then(response => response.json())
-        .then(data => {
-            
-
-            
-            data.reviews.forEach(review => {
-                const reviewElement = createReviewElement(review);
-                reviewsContainer.appendChild(reviewElement);
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('productId');
+    function fetchData(productId) {
+        const singleProductApiUrl = `https://dummyjson.com/products/${productId}`;
+        fetch(singleProductApiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.reviews.forEach(review => {
+                    const reviewElement = createReviewElement(review);
+                    reviewsContainer.appendChild(reviewElement);
+                });
             });
-        });
+    }
 
-    
     reviewForm.addEventListener('submit', event => {
         event.preventDefault();
 
@@ -56,10 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const newReviewElement = createReviewElement(newReview);
         reviewsContainer.appendChild(newReviewElement);
 
-        
+
         reviewRating.value = '';
         reviewText.value = '';
         reviewerName.value = '';
         reviewerEmail.value = '';
     });
+    fetchData(productId);
 });
