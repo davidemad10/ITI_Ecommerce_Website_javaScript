@@ -1,68 +1,32 @@
 // Fetching the Header, Nav Bar and Footer
 
-document.addEventListener("DOMContentLoaded", () => {
-  const headerPH = document.getElementById("headerPH");
-  const logoPH = document.getElementById("logoPH");
-  const navPH = document.getElementById("navPH");
-  const footerPH = document.getElementById("footerPH");
+document.addEventListener('DOMContentLoaded', () => {
+  const headerPH = document.getElementById('headerPH');
+  const logoPH = document.getElementById('logoPH');
+  const navPH = document.getElementById('navPH');
+  const footerPH = document.getElementById('footerPH');
 
-  fetch("HNF.html")
+  fetch('HNF.html')
     .then((response) => response.text())
     .then((data) => {
       const parser = new DOMParser();
-      const doc = parser.parseFromString(data, "text/html");
+      const doc = parser.parseFromString(data, 'text/html');
 
-      const header = doc.querySelector("header");
-      const logo = doc.querySelector(".logo");
-      const nav = doc.querySelector("nav");
-      const footer = doc.querySelector("footer");
+      const header = doc.querySelector('header');
+      const logo = doc.querySelector('.logo');
+      const nav = doc.querySelector('nav');
+      const footer = doc.querySelector('footer');
 
       if (header) headerPH.innerHTML = header.innerHTML;
       if (logo) logoPH.innerHTML = logo.innerHTML;
       if (nav) navPH.innerHTML = nav.innerHTML;
       if (footer) footerPH.innerHTML = footer.innerHTML;
     })
-    .catch((error) => console.error("Error fetching HNF.html:", error));
+    .catch((error) => console.error('Error fetching HNF.html:', error));
 });
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-const search = document.getElementById('search');
-const searchResults = document.getElementById('search-results');
-
-search.addEventListener('input', () => {
-  const query = search.value.trim();
-
-  if (query.length > 0) {
-    fetch(`https://dummyjson.com/products/search?q=${query}`)
-      .then(res => res.json())
-      .then((data) => {
-        const products = data.products || [];
-        displaySearchResults(products);
-      })
-      .catch(error => console.error('Error fetching search results:', error));
-  } else {
-    searchResults.innerHTML = '';
-  }
-});
-
-function displaySearchResults(products) {
-  searchResults.innerHTML = '';
-
-  products.forEach(product => {
-    const li = document.createElement('li');
-    li.textContent = product.title;
-    li.addEventListener('click', () => {
-      localStorage.setItem('productID', product.id);
-      window.location.href = 'productDetails.html';
-    });
-    searchResults.appendChild(li);
-  });
-}
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// Function to check if the user is logged in or not.
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.getElementById('loginButton');
@@ -96,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 // Fetch all products and store them in allProducts array
 
 let allProducts = [];
@@ -108,9 +70,7 @@ async function fetchProducts() {
   let skip = 0;
 
   while (true) {
-    const response = await fetch(
-      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
-    );
+    const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
     const data = await response.json();
 
     if (data.products.length === 0) {
@@ -129,87 +89,82 @@ function displayProduct(index) {
   if (allProducts.length === 0) return;
 
   const product = allProducts[index];
-
-  document.querySelector(".product-name").textContent = product.title || "";
-  document.querySelector(".product-description").textContent =
-    product.description || "";
-
-  const imageElements = document.querySelectorAll(".product-photo");
+  
+  document.querySelector('.product-name').textContent = product.title || '';
+  document.querySelector('.product-description').textContent = product.description || '';
+  
+  const imageElements = document.querySelectorAll('.product-photo');
   if (product.images && product.images.length > 0) {
     imageElements.forEach((imgElement, imgIndex) => {
-      imgElement.src =
-        product.images[imgIndex % product.images.length] || product.images[0];
-      imgElement.alt = product.title || "Product Image";
+      imgElement.src = product.images[imgIndex % product.images.length] || product.images[0];
+      imgElement.alt = product.title || 'Product Image';
     });
   } else {
     imageElements.forEach((imgElement) => {
-      imgElement.src = "";
-      imgElement.alt = "No image available";
+      imgElement.src = '';
+      imgElement.alt = 'No image available';
     });
   }
 }
 
 // Event listeners for carousel controls
-document
-  .querySelector(".carousel-control-next")
-  .addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % allProducts.length;
-    displayProduct(currentIndex);
-  });
+document.querySelector('.carousel-control-next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % allProducts.length;
+  displayProduct(currentIndex);
+});
 
-document
-  .querySelector(".carousel-control-prev")
-  .addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + allProducts.length) % allProducts.length;
-    displayProduct(currentIndex);
-  });
+document.querySelector('.carousel-control-prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + allProducts.length) % allProducts.length;
+  displayProduct(currentIndex);
+});
 
 // Initialize fetching of products
 fetchProducts();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const catInfo = document.querySelector(".cat-info");
+document.addEventListener('DOMContentLoaded', function () {
+  const catInfo = document.querySelector('.cat-info');
   const cats = Array.from(catInfo.children);
   const totalCats = cats.length;
   let startIndex = 0;
   const visibleCats = 6;
 
-  function updateVisibleCats() {
-    catInfo.innerHTML = "";
+  function updateVisibleCats () {
+
+    catInfo.innerHTML = '';
     for (let i = 0; i < visibleCats; i++) {
       const catIndex = (startIndex + i) % totalCats;
       catInfo.appendChild(cats[catIndex]);
     }
   }
 
-  document.querySelector(".left").addEventListener("click", function () {
+  document.querySelector('.left').addEventListener('click', function () {
     startIndex = (startIndex - 1 + totalCats) % totalCats;
-    updateVisibleCats();
+    updateVisibleCats ();
   });
 
-  document.querySelector(".right").addEventListener("click", function () {
+  document.querySelector('.right').addEventListener('click', function () {
     startIndex = (startIndex + 1) % totalCats;
     updateVisibleCats();
   });
 
-  updateVisibleCats();
+  updateVisibleCats()
 });
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetching the products in a certain Category when selected from the homepgae
 
-document.querySelectorAll(".category a").forEach((link) => {
-  link.addEventListener("click", (event) => {
+document.querySelectorAll('.category a, .category').forEach(link => {
+  link.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent default link behavior
     const category = event.target.getAttribute('data-category');
-    window.open('cat.html'); // Open the category page
+    window.open('category.html'); // Open the category page
     localStorage.removeItem('category', category)
     localStorage.setItem('category', category); // Store the category in local storage
   });
 });
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetching products to list on the Explore Products Section
 
@@ -218,8 +173,8 @@ const itemsPerPage = 8;
 let productsData = [];
 
 function exploreProducts() {
-  fetch("https://dummyjson.com/products")
-    .then((res) => res.json())
+  fetch('https://dummyjson.com/products')
+    .then(res => res.json())
     .then((data) => {
       productsData = data.products;
       ShowProductsPerPage();
@@ -235,12 +190,10 @@ function ShowProductsPerPage() {
   const productsToShow = productsData.slice(startIndex, endIndex);
 
   productsToShow.forEach((product) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
+    const card = document.createElement('div');
+    card.classList.add('card');
     card.innerHTML = `
-      <img src="${product.thumbnail}" class="card-img-top" alt="${
-      product.title
-    }">
+      <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
       <div class="card-body">
         <h6 class="card-title">${product.title}</h6>
         <div class="rating">
@@ -265,7 +218,7 @@ function ShowProductsPerPage() {
 
 function generateStars(rating) {
   const maxStars = 5;
-  let stars = "";
+  let stars = '';
   for (let i = 1; i <= maxStars; i++) {
     if (i <= rating) {
       stars += '<i class="fas fa-star"></i>';
@@ -285,7 +238,7 @@ document.querySelector('.left1').addEventListener('click', () => {
   }
 });
 
-document.querySelector(".right1").addEventListener("click", () => {
+document.querySelector('.right1').addEventListener('click', () => {
   if (currentPage * itemsPerPage < productsData.length) {
     currentPage++;
     ShowProductsPerPage();
@@ -293,5 +246,4 @@ document.querySelector(".right1").addEventListener("click", () => {
 });
 
 document.addEventListener('DOMContentLoaded', exploreProducts);
-
 
