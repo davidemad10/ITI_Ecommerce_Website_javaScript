@@ -22,9 +22,9 @@ fetch("https://dummyjson.com/products/category-list")
   })
   .catch((error) => console.error("Error fetching categories:", error));
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetchData("groceries");
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   fetchData("groceries");
+// });
 
 function fetchData(category) {
   fetch(`https://dummyjson.com/products/category/${category}`)
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (selectedCategory) {
     fetchData(selectedCategory);
   } else {
-    console.error("No category selected");
+    fetchData("groceries");
   }
 });
 
