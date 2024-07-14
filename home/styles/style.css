@@ -16,14 +16,13 @@ body {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 50px 50px auto auto auto auto 40px;
+    grid-template-rows: 50px 50px auto auto auto 40px;
     grid-template-areas:
         "header header header header header header header header"
         "logo logo navbar navbar navbar navbar navbar navbar"
         "section1 section1 section1 section1 section1 section1 section1 section1"
         "section2 section2 section2 section2 section2 section2 section2 section2"
         "section3 section3 section3 section3 section3 section3 section3 section3"
-        "section4 section4 section4 section4 section4 section4 section4 section4"
         "footer footer footer footer footer footer footer footer";
 }
 
@@ -79,6 +78,12 @@ body {
     font-weight: bold;
     font-style: italic;
 }
+.logo a {
+    text-decoration: none;
+    color: var(--hd-ft-color);
+    font-weight: bold;
+    font-style: italic;
+}
 
 nav {
     grid-area: navbar;
@@ -128,11 +133,32 @@ nav {
     border: none;
     padding: 5px 10px;
 }
+.search-dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .search-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .search-dropdown li:hover {
+    background-color: #f0f0f0;
+  }
 nav .btn-light
 {
     margin-right: 10px;
     color: var(--hd-ft-color);
     background-color: #EBE3D5;
+}
+nav .btn-light a
+{
+    text-decoration: none;
+    color: var(--hd-ft-color);
 }
 .bi-cart3, .bi-person-circle
 {
@@ -162,13 +188,12 @@ nav .btn-link
 .first-section {
     grid-area: section1;
     display: grid;
-    grid-template-columns: 1.5fr 6.5fr; /* Adjust as needed */
+    grid-template-columns: 1.5fr 6.5fr;
     grid-template-areas: "aside article";
     background-color: var(--bg-color);
     border-top: 0.5px solid #ccc8c4;
-    height: auto; /* Adjust as needed */
+    height: auto; 
 }
-
 .first-section aside {
     grid-area: aside;
     grid-column: span 1.5;
@@ -191,10 +216,6 @@ nav .btn-link
     text-decoration: none;
     color: var(--hd-ft-color);
 }
-/* .first-section article {
-    grid-area: article;
-    grid-column: span 6;
-} */
 
 footer {
     grid-area: footer;
@@ -237,27 +258,27 @@ article .container .row {
     display: inline;
 }
 .product .card-photo {
-    width: 100%; /* or any specific width you desire */
-    text-align: center; /* this centers the image within the div */
+    width: 100%; 
+    text-align: center;
 }
 
 .slide {
     position: relative;
 }
 
-/* Ensure the carousel container has a relative position */
+
 .carousel {
     position: relative;
   }
   
-  /* Style the carousel images with fixed width and height */
+
   .carousel-inner .product-photo {
-    max-width: 600px; /* Adjust as needed */
-    max-height: 400px; /* Adjust as needed */
-    object-fit: cover; /* Ensure the image covers the specified dimensions */
+    max-width: 600px; 
+    max-height: 400px; 
+    object-fit: cover; 
   }
   
-  /* Style the carousel control buttons */
+ 
   .slide .carousel-control-prev,
   .slide .carousel-control-next {
     position: absolute;
@@ -274,11 +295,11 @@ article .container .row {
   }
   
   .carousel-control-prev {
-    left: 5rem; /* Adjust the positioning */
+    left: 5rem; 
   }
   
   .carousel-control-next {
-    right: 5rem; /* Adjust the positioning */
+    right: 5rem;
   }
   
   .carousel-control-prev-icon,
@@ -292,12 +313,11 @@ article .container .row {
     background-color: var(--bg-color);
     grid-area: section2;
     grid-column: span 8;
-    height: 500px;
+    height: 400px;
 }
 .second-section .container {
     border: none;
     border-radius: 6px;
-    border-bottom: 0.5px solid #ccc8c4;
 }
 .second-section .container .row {
     margin: 15px 2rem 15px 5rem;
