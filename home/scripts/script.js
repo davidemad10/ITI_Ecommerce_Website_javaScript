@@ -25,113 +25,78 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => console.error("Error fetching HNF.html:", error));
 });
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const binId = "66913e9cad19ca34f8869592";
-//   const masterKey = "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
-//   const apiUrl = 'https://api.jsonbin.io/v3/b/${binId}';
+const search = document.getElementById('search');
+const searchResults = document.getElementById('search-results');
 
-//   const registerButton = document.getElementById('register');
-//   const loginButton = document.getElementById('login');
-//   const logoutButton = document.getElementsByClassName('logout');
+search.addEventListener('input', () => {
+  const query = search.value.trim();
 
-//   async function fetchLogin() {
-//     try {
-//       const response = await fetch(apiUrl, {
-//         method: "GET",
-//         headers: {
-//           "X-Master-Key": masterKey,
-//         },
-//       });
-//       const data = await response.json();
-//       return data.record || []; // Ensure it returns an array
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//       return [];
-//     }
-//   }
-//   async function checkLogin(email, password) {
-//     const loginData = fetchLogin();
-//     const user = loginData.find(user => user.email == email && user.password == password);
-
-//     if (user) {
-//       localStorage.setItem('loggedInUser', JSON.stringify(user));
-//       updateUI(true);
-//     } else {
-//       console.log('Invalid Login');
-//     }
-//   }
-
-//   function updateUI(isLoggedIn) {
-//     if (isLoggedIn) {
-//       registerButton.style.display = 'none';
-//       loginButton.style.display = 'none';
-//       logoutButton.style.display = 'block';
-//     } else {
-//       registerButton.style.display = 'block';
-//       loginButton.style.display = 'block';
-//       logoutButton.style.display = 'none';
-//     }
-//   }
-
-//   loginButton.addEventListener('click', () => {
-
-//   });
-// });
-document.addEventListener("DOMContentLoaded", () => {
-  const binId = "66913e9cad19ca34f8869592";
-  const masterKey =
-    "$2a$10$vGIHMbGClbNICsJWVDBw3.s26K378S9pFA9v1dj7cSC1ZdG6SFkFW";
-  const apiUrl = "https://api.jsonbin.io/v3/b/${binId}";
-
-  const registerButton = document.getElementById("register");
-  const loginButton = document.getElementById("login");
-  const logoutButton = document.getElementsByClassName("logout");
-
-  async function fetchLogin() {
-    try {
-      const response = await fetch(apiUrl, {
-        method: "GET",
-        headers: {
-          "X-Master-Key": masterKey,
-        },
-      });
-      const data = await response.json();
-      return data.record || []; // Ensure it returns an array
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      return [];
-    }
+  if (query.length > 0) {
+    fetch(`https://dummyjson.com/products/search?q=${query}`)
+      .then(res => res.json())
+      .then((data) => {
+        const products = data.products || [];
+        displaySearchResults(products);
+      })
+      .catch(error => console.error('Error fetching search results:', error));
+  } else {
+    searchResults.innerHTML = '';
   }
-  async function checkLogin(email, password) {
-    const loginData = fetchLogin();
-    const user = loginData.find(
-      (user) => user.email == email && user.password == password
-    );
+});
 
-    if (user) {
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-      updateUI(true);
-    } else {
-      console.log("Invalid Login");
-    }
-  }
+function displaySearchResults(products) {
+  searchResults.innerHTML = '';
+
+  products.forEach(product => {
+    const li = document.createElement('li');
+    li.textContent = product.title;
+    li.addEventListener('click', () => {
+      localStorage.setItem('productID', product.id);
+      window.location.href = 'productDetails.html';
+    });
+    searchResults.appendChild(li);
+  });
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Function to check if the user is logged in or not.
+
+document.addEventListener('DOMContentLoaded', () => {
+  const loginButton = document.getElementById('loginButton');
+  const registerButton = document.getElementById('registerButton');
+  const logoutButton = document.getElementById('logoutButton');
 
   function updateUI(isLoggedIn) {
     if (isLoggedIn) {
-      registerButton.style.display = "none";
-      loginButton.style.display = "none";
-      logoutButton.style.display = "block";
+      loginButton.style.display = 'none';
+      registerButton.style.display = 'none';
+      logoutButton.style.display = 'block';
     } else {
-      registerButton.style.display = "block";
-      loginButton.style.display = "block";
-      logoutButton.style.display = "none";
+      loginButton.style.display = 'block';
+      registerButton.style.display = 'block';
+      logoutButton.style.display = 'none';
     }
   }
 
-  loginButton.addEventListener("click", () => {});
+  // Logout function
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser');
+    updateUI(false);
+  });
+
+  // Check login on page load
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  if (loggedInUser) {
+    updateUI(true);
+  } else {
+    updateUI(false);
+  }
 });
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetch all products and store them in allProducts array
 
@@ -230,21 +195,21 @@ document.addEventListener("DOMContentLoaded", function () {
   updateVisibleCats();
 });
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetching the products in a certain Category when selected from the homepgae
 
 document.querySelectorAll(".category a").forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault(); // Prevent default link behavior
-    const category = event.target.getAttribute("data-category");
-    localStorage.removeItem("category", category);
-    localStorage.setItem("selectedCategory", category); // Store the category in local storage
-    window.location.href = "/home/html/cat.html"; // Open the category page
+    const category = event.target.getAttribute('data-category');
+    window.open('cat.html'); // Open the category page
+    localStorage.removeItem('category', category)
+    localStorage.setItem('category', category); // Store the category in local storage
   });
 });
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Fetching products to list on the Explore Products Section
 
@@ -262,10 +227,8 @@ function exploreProducts() {
 }
 
 function ShowProductsPerPage() {
-  const productContainer = document.querySelector(".product-info");
-  productContainer.innerHTML = "";
-  const cartCountSpan = document.querySelector(".cart-count");
-  let totalCartCount = 0;
+  const productContainer = document.querySelector('.product-info');
+  productContainer.innerHTML = '';
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -286,42 +249,16 @@ function ShowProductsPerPage() {
           <span class="rates">(${product.rating})</span>
         </div>
         <div class="count-div">
-          <button class="subtract">-</button>
-          <span class="count">0</span>
-          <button class="add">+</button>
-          <a href="#" class="btn btn-light add-to-cart">Add to Cart</a>
+          <a href="productDetails.html" target="_blank" class="btn btn-light view-product">View Product</a>
         </div>
       </div>
     `;
     productContainer.appendChild(card);
 
-    const addButton = card.querySelector(".add");
-    const subButton = card.querySelector(".subtract");
-    const addToCartButton = card.querySelector(".add-to-cart");
-    const countSpan = card.querySelector(".count");
-    let count = 0;
+    const viewProductButton = card.querySelector('.view-product');
 
-    addButton.addEventListener("click", () => {
-      count++;
-      countSpan.textContent = count;
-    });
-
-    subButton.addEventListener("click", () => {
-      if (count > 0) {
-        count--;
-        countSpan.textContent = count;
-      }
-    });
-
-    addToCartButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      if (count > 0) {
-        addToCart(product, count);
-        totalCartCount += count;
-        cartCountSpan.textContent = totalCartCount;
-        count = 0;
-        countSpan.textContent = count;
-      }
+    viewProductButton.addEventListener('click', () => {
+      localStorage.setItem('productID', product.id);
     });
   });
 }
@@ -341,11 +278,7 @@ function generateStars(rating) {
   return stars;
 }
 
-function addToCart(product, count) {
-  console.log(`Added ${count} of ${product.title} to cart`);
-}
-
-document.querySelector(".left1").addEventListener("click", () => {
+document.querySelector('.left1').addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
     ShowProductsPerPage();
@@ -359,4 +292,6 @@ document.querySelector(".right1").addEventListener("click", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", exploreProducts);
+document.addEventListener('DOMContentLoaded', exploreProducts);
+
+
