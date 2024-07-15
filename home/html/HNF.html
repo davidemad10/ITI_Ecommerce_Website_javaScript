@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
     <header class="header" id="header">
@@ -24,11 +23,12 @@
               <a class="nav-link act" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Offers</a>
-            </li> -->
+              <a class="nav-link" href="cat.html">Categories</a>
+            </li>
           </ul>
         <div class="search">
-            <input type="search" name="search" id="search" placeholder="What are you looking for?">
+            <input autocomplete type="search" name="search" id="search" placeholder="What are you looking for?">
+            <ul id="search-results" class="search-dropdown"></ul>
         </div>
         <button type="button" class="btn btn-light" id="registerButton">
           <a href="signUp.html">Register</a>
@@ -42,22 +42,21 @@
         <a href="cart.html" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-            <sup><span class="cart-count"></span></sup>
           </svg>
         </a>
-        <button class="btn btn-link dropdown-toggle toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="btn btn-link dropdown-toggle toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
           </svg>
-        </button>
+        </a>
         <ul class="dropdown-menu">
-          <li class="profile"><a  class="dropdown-item" href="/home/html/profile.html"><span>
+          <li class="profile"><a class="dropdown-item" href="profile.html"><span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
             </svg>
           </span>Manage My Profile</a></li>
-          <li class="profile"><a class="dropdown-item" href="#"><span>
+          <li class="profile"><a class="dropdown-item" href="cart.html"><span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2-heart" viewBox="0 0 16 16">
               <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982"/>
               <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zm0 1H7.5v3h-6zM8.5 4V1h3.75l2.25 3zM15 5v10H1V5z"/>
@@ -76,28 +75,25 @@
                 <div class="col-md-3 mb-5">
                     <h3>Quick Link</h3>
                     <ul class="list-unstyled link">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Rooms</a></li>
+                        <li><a href="signUp.html">Sign Up</a></li>
+                        <li><a href="cat.html">Categories</a></li>
+                        <li><a href="productDetails.html">Products</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-3 mb-5">
                     <h3>Support</h3>
                     <ul class="list-unstyled link">
-                        <li><a href="#">Our Location</a></li>
-                        <li><a href="#">The Hosts</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Restaurant</a></li>
+                        <li><a href="https://iti.gov.eg/">Our Location</a></li>
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="https://iti.gov.eg/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 pr-md-5 contact-info">
                     <h3>Contact Info</h3>
-                    <p><span class="d-block">Address:</span> <span> 98 West 21th Street, Suite 721 New York NY 10016</span></p>
-                    <p><span class="d-block">Phone:</span> <span> (+1) 435 3533</span></p>
-                    <p><span class="d-block">Email:</span> <span> info@yourdomain.com</span></p>
+                    <p><span class="d-block">Address:</span> <span> The Knowledge City, NC, Cairo, Egypt</span></p>
+                    <p><span class="d-block">Phone:</span> <span> (+20) 12 016 89 420</span></p>
+                    <p><span class="d-block">Email:</span> <span> Basmadness@iti.gov.eg</span></p>
                 </div>
                 <div class="col-md-3 mb-5">
                     <h3>Subscribe</h3>
@@ -118,11 +114,11 @@
                 </script> All rights reserved | This website is Powered by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="index.html" target="_blank">BASMADness</a>
                 </p>
                 <p class="col-md-12 social">
-                    <a href="#"><span class="fa-brands fa-facebook"></span></a>
-                    <a href="#"><span class="fa-brands fa-twitter"></span></a>
-                    <a href="#"><span class="fa-brands fa-instagram"></span></a>
-                    <a href="#"><span class="fa-brands fa-linkedin"></span></a>
-                    <a href="#"><span class="fa-brands fa-youtube"></span></a>
+                    <a href="https://www.facebook.com" target="_blank"><span class="fa-brands fa-facebook"></span></a>
+                    <a href="https://www.x.com" target="_blank"><span class="fa-brands fa-twitter"></span></a>
+                    <a href="https://www.instagram.com" target="_blank"><span class="fa-brands fa-instagram"></span></a>
+                    <a href="https://www.linkedin.com" target="_blank"><span class="fa-brands fa-linkedin"></span></a>
+                    <a href="https://www.youtube.com" target="_blank"><span class="fa-brands fa-youtube"></span></a>
                 </p>
             </div>
         </div>
