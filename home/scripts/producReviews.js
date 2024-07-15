@@ -6,12 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviewRating = document.getElementById('review-rating');
     const reviewText = document.getElementById('review-text');
 
-
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
-
 
     function createReviewElement(review) {
         const reviewElement = document.createElement('div');
@@ -26,6 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('productId');
+
+    function saveReviewsToLocalStorage(reviews) {
+        localStorage.setItem(`reviews_${productId}`, JSON.stringify(reviews));
+    }
+
+    function getReviewsFromLocalStorage() {
+        const reviews = localStorage.getItem(`reviews_${productId}`);
+        return reviews ? JSON.parse(reviews) : [];
+    }
+
+    function renderStoredReviews() {
+        const storedReviews = getReviewsFromLocalStorage();
+        storedReviews.forEach(review => {
+            const reviewElement = createReviewElement(review);
+            reviewsContainer.appendChild(reviewElement);
+        });
+    }
+
     function fetchData(productId) {
         const singleProductApiUrl = `https://dummyjson.com/products/${productId}`;
         fetch(singleProductApiUrl)
@@ -35,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const reviewElement = createReviewElement(review);
                     reviewsContainer.appendChild(reviewElement);
                 });
+                // Render stored reviews after API reviews
+                renderStoredReviews();
             });
     }
 
@@ -56,11 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const newReviewElement = createReviewElement(newReview);
         reviewsContainer.appendChild(newReviewElement);
 
+        const storedReviews = getReviewsFromLocalStorage();
+        storedReviews.push(newReview);
+        saveReviewsToLocalStorage(storedReviews);
 
         reviewRating.value = '';
         reviewText.value = '';
         reviewerName.value = '';
         reviewerEmail.value = '';
     });
+
     fetchData(productId);
 });
