@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navPH = document.getElementById("navPH");
   const footerPH = document.getElementById("footerPH");
 
-  fetch("HNF.html")
+  fetch("./html/HNF.html")
     .then((response) => response.text())
     .then((data) => {
       const parser = new DOMParser();
@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (nav) navPH.innerHTML = nav.innerHTML;
       if (footer) footerPH.innerHTML = footer.innerHTML;
 
-      initializeLoginState();
-      initializeSearch();
+
     })
     .catch((error) => console.error("Error fetching HNF.html:", error));
 });
@@ -60,6 +59,8 @@ function initializeLoginState() {
   }
 }
 
+initializeLoginState();
+
 function initializeSearch() {
   const search = document.getElementById("search");
   const searchResults = document.getElementById("search-results");
@@ -92,7 +93,7 @@ function initializeSearch() {
   }
 
   function handlRoute(id) {
-    window.open(`productDetails.html?productId=${id}`);
+    window.open(`./html/productDetails.html?productId=${id}`);
   }
 
   function displaySearchResults(products) {
@@ -109,6 +110,8 @@ function initializeSearch() {
     });
   }
 }
+
+      initializeSearch();
 
 // TAKE ALL THE CODE BEFORE THE FOLLOWING LINES
 
@@ -217,7 +220,7 @@ document.querySelectorAll(".cat, .category").forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault(); // Prevent default link behavior
     const category = event.target.getAttribute("data-category");
-    window.location.href = "../html/cat.html"; // Open the category page
+    window.location.href = "./html/cat.html"; // Open the category page
     localStorage.removeItem("selectedCategory", category);
     localStorage.setItem("selectedCategory", category); // Store the category in local storage
   });
@@ -263,7 +266,7 @@ function ShowProductsPerPage() {
           <span class="rates">(${product.rating})</span>
         </div>
         <div class="count-div">
-          <a href="productDetails.html"  class="btn btn-light view-product" onclick="handlRoute(${
+          <a href="./html/productDetails.html"  class="btn btn-light view-product" onclick="handlRoute(${
             product.id
           })">View Product</a>
         </div>
@@ -272,7 +275,7 @@ function ShowProductsPerPage() {
     productContainer.appendChild(card);
 
     function handlRoute(id) {
-      window.open(`productDetails.html?productId=${id}`);
+      window.open(`./html/productDetails.html?productId=${id}`);
     }
 
     const viewProductButton = card.querySelector(".view-product");
