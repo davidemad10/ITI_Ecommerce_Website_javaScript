@@ -6,7 +6,6 @@ const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 document.addEventListener("DOMContentLoaded", function () {
   if (!loggedInUser) {
     window.location.href = "/home/html/signIn.html";
-    console.log("this is ay klam");
     return;
   }
 

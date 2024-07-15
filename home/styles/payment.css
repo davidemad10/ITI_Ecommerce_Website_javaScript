@@ -1,106 +1,101 @@
-body{
-    background-color: #F3EEEA;
+body {
+  background-color: #f3eeea;
 }
-.Homedive{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2vh;
-    padding-top: 10vh;
+.Homedive {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vh;
+  padding-top: 10vh;
 }
-.Homedive-p{
-    color: rgb(52, 52, 52,0.5);
-    padding-left: 5.8vw ;
+.Homedive-p button {
+  color: rgb(52, 52, 52, 0.5);
+  padding-left: 5.8vw;
+  background-color: transparent;
+  border: none;
 }
-.Homedive-p span{
-    color: #8c5600;
+.Homedive-p button:hover {
+  cursor: pointer;
 }
-.bodydive{
-    display: grid; 
-    grid-template-columns: 1fr 3fr; 
-    column-gap: 10vw
+.Homedive-p span {
+  color: #8c5600;
+}
+.bodydive {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 10vw;
 }
 
-.paymentSection{
-    background-color: #EBE3D5;
-    margin-bottom: 16px;
-    display: inline-block;
-    height: 90vh;
-    width: 60vw;
-    margin-top: 5vh;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+.paymentSection {
+  background-color: #ebe3d5;
+  margin-bottom: 16px;
+  display: inline-block;
+  height: 90vh;
+  width: 60vw;
+  margin-top: 5vh;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
-h2{
-    font-family:'Poppins';
-    font-weight: 500;
-    font-size: 3vw;
-    color: #544a3b;
-    margin-left: 5vw;
+h2 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 3vw;
+  color: #544a3b;
+  margin-left: 5vw;
 }
 
 /* left div */
 .left-div1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5vh;
 }
-.left-div2{
-    display: flex;
-    justify-content: center;
-    align-items:flex-start;
-    flex-direction: column;
-    padding-left: 5.5vw;
+.left-div2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 5.5vw;
 }
-.left-div2 a{
-    display: block;
-    background-color: transparent;
-    color: black;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+.left-div2 a {
+  display: block;
+  background-color: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 .myProfile-btn:hover,
 .mypayment-btn:hover,
 .myorder-btn:hover {
-    color: #845407;
+  color: #845407;
 }
 
 /*payment section*/
 .paymentSection {
-    background-color: #ebe3d5;
+  background-color: #ebe3d5;
 }
 .mainPayment {
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .mainPayment div {
-    width: 10vw;
-    height: 10vh;
-    margin: 2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 10vw;
+  height: 10vh;
+  margin: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mainPayment img {
-    width: 10vw;
-    object-fit: contain;
+  width: 10vw;
+  object-fit: contain;
 }
 .mainPayment img:hover {
-    cursor: pointer;
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-
-
-
-
-
-
-
-
-
-
