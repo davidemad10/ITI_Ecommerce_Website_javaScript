@@ -1,4 +1,4 @@
-// Fetching the Header, Nav Bar and Footer
+// Fetching the Header, Nav Bar, and Footer
 
 document.addEventListener('DOMContentLoaded', () => {
   const headerPH = document.getElementById('headerPH');
@@ -21,17 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (logo) logoPH.innerHTML = logo.innerHTML;
       if (nav) navPH.innerHTML = nav.innerHTML;
       if (footer) footerPH.innerHTML = footer.innerHTML;
+
+      initializeLoginState();
+      initializeSearch();
     })
     .catch((error) => console.error('Error fetching HNF.html:', error));
 });
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-document.addEventListener('DOMContentLoaded', () => {
+function initializeLoginState() {
+  
   const loginButton = document.getElementById('loginButton');
   const registerButton = document.getElementById('registerButton');
   const logoutButton = document.getElementById('logoutButton');
+
 
   function updateUI(isLoggedIn) {
     if (isLoggedIn) {
@@ -58,7 +60,57 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     updateUI(false);
   }
-});
+}
+
+function initializeSearch() {
+  const search = document.getElementById('search');
+  const searchResults = document.getElementById('search-results');
+
+  if (search) {
+    search.addEventListener('input', () => {
+      const query = search.value.trim();
+      console.log(`Searching for: ${query}`); // Debugging line
+
+      if (query.length > 0) {
+        fetch(`https://dummyjson.com/products/search?q=${query}`)
+          .then(res => {
+            console.log('Received response:', res); // Debugging line
+            return res.json();
+          })
+          .then((data) => {
+            console.log('Received data:', data); // Debugging line
+            const products = data.products || [];
+            displaySearchResults(products);
+          })
+          .catch(error => console.error('Error fetching search results:', error));
+      } else {
+        searchResults.innerHTML = '';
+      }
+    });
+  } else {
+    console.error('Search input field not found.');
+  }
+
+  function handlRoute(id) {
+    window.open(`productDetails.html?productId=${id}`);
+  }
+
+  function displaySearchResults(products) {
+    searchResults.innerHTML = '';
+
+    products.forEach(product => {
+      const li = document.createElement('li');
+      li.textContent = product.title;
+      li.addEventListener('click', () => {
+        localStorage.setItem('productID', product.id);
+        handlRoute(product.id);
+      });
+      searchResults.appendChild(li);
+    });
+  }
+}
+
+// TAKE ALL THE CODE BEFORE THE FOLLOWING LINES
 
 // Fetch all products and store them in allProducts array
 
@@ -154,11 +206,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Fetching the products in a certain Category when selected from the homepgae
 
-document.querySelectorAll('.category a, .category').forEach(link => {
+document.querySelectorAll('.cat, .category').forEach(link => {
   link.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent default link behavior
     const category = event.target.getAttribute('data-category');
-    window.open('category.html'); // Open the category page
+    window.open('cat.html'); // Open the category page
     localStorage.removeItem('category', category)
     localStorage.setItem('category', category); // Store the category in local storage
   });
@@ -202,16 +254,21 @@ function ShowProductsPerPage() {
           <span class="rates">(${product.rating})</span>
         </div>
         <div class="count-div">
-          <a href="productDetails.html" target="_blank" class="btn btn-light view-product">View Product</a>
+          <a href="productDetails.html" target="_blank" class="btn btn-light view-product" onclick="handlRoute(${product.id})">View Product</a>
         </div>
       </div>
     `;
     productContainer.appendChild(card);
 
+    function handlRoute(id) {
+      window.open(`productDetails.html?productId=${id}`);
+    }
+
     const viewProductButton = card.querySelector('.view-product');
 
     viewProductButton.addEventListener('click', () => {
       localStorage.setItem('productID', product.id);
+      handlRoute(product.id);
     });
   });
 }
