@@ -2,7 +2,7 @@ const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 // Redirect to login page if no user data found
 document.addEventListener("DOMContentLoaded", function () {
   if (!loggedInUser) {
-    window.location.href = "/home/html/signIn.html";
+    window.location.href = "signIn.html";
     return;
   }
 });

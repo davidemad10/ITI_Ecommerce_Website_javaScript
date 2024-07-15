@@ -53,7 +53,7 @@ document
 
       // Redirect to home page after 2 seconds
       setTimeout(() => {
-        window.location.href = "../html/index.html";
+        window.location.href = "../index.html";
       }, 2000); // 2000 milliseconds = 2 seconds
     } else {
       messageElement.textContent = "Email or password is incorrect.";

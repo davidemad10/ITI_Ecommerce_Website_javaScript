@@ -20,14 +20,14 @@ body {
 
 /* End Body Styling */
 
-#headerPH, .logo, nav, main, footer
+#header, .logo, nav, main, footer
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 /* Start Header Style */
-#headerPH {
+#header {
     background-color: var(--hd-ft-color);
     padding: 10px;
     color: var(--p-color);
