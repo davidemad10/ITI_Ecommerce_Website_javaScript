@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/productDetails.css" />
+    <script src="../scripts/slider.js" defer></script>
+    <script src="../scripts/cart.js" defer></script>
+    <script src="../scripts/ProductDetails.js" defer></script>
+    <script src="../scripts/producReviews.js" defer></script>
+    <script src="../scripts/loadNavbarFooter.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 26px;
+            border-bottom: 1px solid var(--grayish-blue);
+            margin-bottom: 85px;
+            position: relative;
+        }
+
+        .nav-first {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding-bottom: 30px;
+        }
+
+        .nav-first .menu-icon {
+            display: none;
+        }
+
+        .nav-first .backdrop {
+            display: none;
+        }
+
+        .nav-links .close-icon {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links a:hover::after {
+            content: "";
+            position: absolute;
+            background-color: var(--4);
+            width: 100%;
+            height: 3px;
+            left: 0;
+            bottom: -47px;
+        }
+
+        .nav-second {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            padding-bottom: 30px;
+        }
+
+        .logo img {
+            height: 22px;
+        }
+
+        .avatar img {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <section class="nav-first">
+                    <svg class="menu-icon" width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd" />
+                    </svg>
+                    <div class="logo">
+                    </div>
+                    <div class="backdrop"></div>
+                    <div class="nav-links">
+                        <svg class="close-icon" width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                                fill="#69707D" fill-rule="evenodd" />
+                        </svg>
+                        <a href="../html/index.html">Home</a>
+                        <!-- <a href="../html/category.html">Categories</a> -->
+                        <!-- <a href="../html/profile.html">profile</a> -->
+                    </div>
+                </section>
+                <section class="nav-second">
+                    <div class="cart">
+                        <img class="cart-icon" src="../images/icon-cart.svg" alt="cart icon" />
+                        <div class="cart-container">
+                            <div class="cart-title">Cart</div>
+                            <div class="cart-items empty">
+                                <p class="cart-empty">Your cart is empty</p>
+                            </div>
+                            <button class="checkout empty">Checkout</button>
+                        </div>
+                        <!-- <div class="cart-count">
+                            <span class="qty">0</span>
+                        </div> -->
+                    </div>
+                    <div class="avatar">
+                        <img src="images/image-avatar.png" alt="avatar" />
+                    </div>
+                </section>
+            </nav>
+        </header>
+    </div>
+
+</body>
+
+</html>

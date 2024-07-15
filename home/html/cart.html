@@ -7,14 +7,15 @@
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/productDetails.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/cart.css" />
+    <script src="../scripts/loadNavbarFooter.js" defer></script>
+    <script src="../scripts/ProductDetails.js" defer></script>
     <script src="../scripts/cart.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <header>
-            <nav class="navbar">
-            </nav>
+                <div id="navbar-placeholder"></div>
         </header>
         <main>
             <div id="cart-container">
@@ -23,7 +24,9 @@
                 <div id="total-price-container">
                     <strong>Total: </strong><span id="total-price">$0.00</span>
                 </div>
-                <button class="checkout">Checkout</button>
+                <button class="checkout">
+                    <a href="../html/payment.html" style="color: beige;">Checkout</a>
+                </button>
             </div>
         </main>
     </div>

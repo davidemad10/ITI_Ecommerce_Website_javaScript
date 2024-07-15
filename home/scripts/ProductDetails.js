@@ -11,15 +11,6 @@ let productStock;
 let productImages;
 let productThumbnails;
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const selectedCategory = localStorage.getItem("selectedCategory");
-//   if (selectedCategory) {
-//     fetchData(selectedCategory);
-//   } else {
-//     console.error("No category selected");
-//   }
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('productId');
