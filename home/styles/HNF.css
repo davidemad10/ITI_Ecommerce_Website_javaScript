@@ -1,0 +1,242 @@
+:root {
+    --bg-color: #F3EEEA;
+    --hd-ft-color: #776B5D;
+    --p-color: antiquewhite;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9 rem; /* Fixed font-size */
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#headerPH, .logo, nav, footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Start Header Style */
+#headerPH {
+    background-color: var(--hd-ft-color);
+    padding: 10px;
+    color: var(--p-color);
+}
+.navigation {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-color);
+}
+.adv
+{
+    width: 70%;
+    color: var(--p-color);
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+.dropdown
+{
+    background-color: var(--hd-ft-color);
+    border: none;
+    border-radius: 10px;
+}
+.dropdown .toggler
+{
+    color: var(--p-color);
+    font-size: 12px;
+}
+.dropdown-menu .dropdown-item
+{
+    font-size: 12px;
+    color: var(--hd-ft-color);
+}
+/* End Header Style */
+
+/* Additional styles for other grid areas */
+.logo {
+
+    background-color: var(--bg-color);
+    /* border-right: 0.5px solid #ccc8c4; */
+    color: #776B5D;
+    font-weight: bold;
+    font-style: italic;
+}
+.logo a {
+    text-decoration: none;
+    color: var(--hd-ft-color);
+    font-weight: bold;
+    font-style: italic;
+}
+
+nav {
+
+    background-color: var(--bg-color);
+}
+.search #search{
+    background-color: transparent;
+    border: 0.5px solid #ccc8c4;
+}
+.search #search::placeholder{
+    padding: 2px;
+    font-style: italic;
+}
+#search
+{
+    margin: 0 30px 0 100px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+}
+.search-dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+    position: absolute;
+    z-index: 1000;
+    width: 20%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-dropdown li:hover {
+    background-color: #f0f0f0;
+}
+.nav-underline
+{
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.nav-underline li
+{
+    margin-right: 20px;
+}
+.nav-underline li a
+{
+    text-decoration: none;
+    color: var(--hd-ft-color);
+}
+.nav-underline li a:hover {
+    color: #B0A695;
+}
+.nav-underline li .act {
+    color: var(--hd-ft-color);
+    font-weight: bolder;
+}
+.nav-underline li .act:hover {
+    color: #B0A695;
+}
+#search
+{
+    margin: 0 30px 0 100px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+}
+nav .btn-light
+{
+    margin-right: 10px;
+    color: var(--hd-ft-color);
+    background-color: #EBE3D5;
+}
+nav .btn-light a
+{
+    text-decoration: none;
+    color: var(--hd-ft-color);
+}
+.bi-cart3, .bi-person-circle
+{
+    margin-left: 30px;
+}
+.bi-cart3
+{
+    color: var(--hd-ft-color);
+}
+.bi-cart3 sup {
+    text-decoration: none;
+    color: #776B5D;
+    border-radius: 50%;
+    padding: 2px;
+    border: 0.5px solid #776B5D;
+}
+nav .btn-link
+{
+    text-decoration: none;
+    color: var(--hd-ft-color);
+}
+.dropdown-menu .profile
+{
+    display: inline;
+    font-size: 12px;
+}
+
+footer {
+
+    background-color: var(--hd-ft-color);
+
+    color: var(--bg-color);
+    height: max-content;
+    padding: 20px 4rem;
+}
+.footer-section a
+{
+    text-decoration: none;
+    color: var(--bg-color);
+}
+.footer-section .social a {
+    color: var(--bg-color);
+    margin: 0 5px;
+    font-size: 20px;
+}
+.footer-section .container a
+{
+    color: var(--bg-color);
+    text-decoration: none;
+}
+.footer-section .container .row a:hover
+{
+    color: white;
+    opacity: 1;
+}
+.footer-section .container .bordertop .copy
+{
+    color: var(--bg-color);
+}
+
+.footer-newsletter input{
+    background-color: transparent;
+    border: 0.5px solid #ccc8c4;
+}
+.footer-newsletter input::placeholder{
+    padding: 2px;
+    font-style: italic;
+    color: var(--bg-color);
+}
+.footer-newsletter input:focus {
+    color: #776B5D;
+    font-weight: bold;
+}
+.form-group button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: var(--hd-ft-color);
+    background-color: #EBE3D5;
+}
