@@ -4,6 +4,11 @@
     --3: #b0a695;
     --4: #776B5D;
 }
+.container-fluid{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
 
 #cart-container {
     width: 100%;
