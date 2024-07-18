@@ -196,13 +196,110 @@ input:focus {
   display: none;
 }
 
-/* Media Queries for Responsiveness */
+
+@media (max-width: 700px) {
+  .section {
+    width: 75%;
+    padding: 2rem;
+    height: 95vh;
+  }
+
+  .section:hover {
+    box-shadow: 0px 0px 20px 20px #ffedc8;
+    width: 76%;
+    height: 96vh;
+    transition: 0.5s;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  #signupForm {
+    margin-top: 1.5rem;
+  }
+
+  .box {
+    width: 45%;
+    overflow: hidden;
+  }
+
+  .box label {
+    font-size: 14px;
+  }
+
+  .box i {
+    font-size: 7px;
+  }
+
+  .box input,
+  select {
+    width: 75%;
+    font-size: 10px;
+    overflow: hidden;
+  }
+
+  .box:hover {
+    width: 46%;
+    height: 4.5rem;
+    transition: 0.5s;
+    box-shadow: 3px 5px #66522d;
+  }
+
+  select:focus {
+    border: 0px 0 0 1px solid rgb(235, 199, 147);
+    outline: none;
+  }
+
+  input:focus {
+    border: 0px;
+    border-right: 2px solid #66522d;
+    border-radius: 0px;
+    background-color: rgb(148, 138, 121, 0.4);
+    outline: none;
+  }
+
+  .last {
+    font-size: 16px;
+  }
+
+  #registerButton {
+    width: 13rem;
+    height: 2.5rem;
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+
+  .already {
+    margin-top: 0.5rem;
+    font-size: 15px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 8px;
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .section {
     width: 70%;
     padding: 1.5rem;
     height: 90vh;
   }
+
+.section:hover {
+  box-shadow: 0px 0px 20px 20px #ffedc8;
+  width: 71%;
+  height: 91vh;
+  transition: 0.5s;
+}
+
   h1 {
     font-size: 20px;
   }
@@ -231,6 +328,28 @@ input:focus {
     font-size: 7px;
     overflow: hidden;
   }
+
+  .box:hover {
+    width: 40%;
+    height: 4rem;
+    transition: 0.5s;
+    box-shadow: 2px 4px #66522d;
+  }
+  
+  select:focus {
+    border: 0px 0 0 1px solid rgb(235, 199, 147);
+    outline: none;
+  }
+  
+  input:focus {
+    border: 0px;
+    border-right: 1px solid #66522d;
+    border-radius: 0px;
+    background-color: rgb(148, 138, 121, 0.4);
+    outline: none;
+  }
+  
+
   .last{
     font-size: 14px;
   }
@@ -243,5 +362,190 @@ input:focus {
   .already{
     margin-top: 0px;
     font-size: 14px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 7px;
+    display: none;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .section {
+    width: 70%;
+    padding: 1.5rem;
+    height: 90vh;
+  }
+
+.section:hover {
+  box-shadow: 0px 0px 20px 20px #ffedc8;
+  width: 71%;
+  height: 91vh;
+  transition: 0.5s;
+}
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 10px;
+  }
+
+  #signupForm {
+    margin-top: 0.5rem;
+  }
+
+  .box {
+    width: 35%;
+    overflow: hidden;
+  }
+
+  .box label {
+    font-size: 9px;
+  }
+
+  .box i {
+    font-size: 4px;
+  }
+
+  .box input,
+  select {
+    width: 65%;
+    font-size: 6px;
+    overflow: hidden;
+  }
+
+  .box:hover {
+    width: 36%;
+    height: 3.8rem;
+    transition: 0.5s;
+    box-shadow: 1px 3px #66522d;
+  }
+
+  select:focus {
+    border: 0px 0 0 1px solid rgb(235, 199, 147);
+    outline: none;
+  }
+
+  input:focus {
+    border: 0px;
+    border-right: 0.5px solid #66522d;
+    border-radius: 0px;
+    background-color: rgb(148, 138, 121, 0.4);
+    outline: none;
+  }
+
+  .last {
+    font-size: 12px;
+  }
+
+  #registerButton {
+    width: 11rem;
+    height: 2rem;
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+
+  .already {
+    margin-top: 0.2rem;
+    font-size: 12px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 6px;
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .section {
+    width: 70%;
+    padding: 1.5rem;
+    height: 90vh;
+  }
+
+.section:hover {
+  box-shadow: 0px 0px 20px 20px #ffedc8;
+  width: 71%;
+  height: 91vh;
+  transition: 0.5s;
+}
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 9px;
+  }
+
+  #signupForm {
+    margin-top: 0.25rem;
+  }
+
+  .box {
+    width: 30%;
+    overflow: hidden;
+  }
+
+  .box label {
+    font-size: 8px;
+  }
+
+  .box i {
+    font-size: 3px;
+  }
+
+  .box input,
+  select {
+    width: 60%;
+    font-size: 5px;
+    overflow: hidden;
+  }
+
+  .box:hover {
+    width: 31%;
+    height: 3.5rem;
+    transition: 0.5s;
+    box-shadow: 0.5px 2px #66522d;
+  }
+
+  select:focus {
+    border: 0px 0 0 1px solid rgb(235, 199, 147);
+    outline: none;
+  }
+
+  input:focus {
+    border: 0px;
+    border-right: 0.5px solid #66522d;
+    border-radius: 0px;
+    background-color: rgb(148, 138, 121, 0.4);
+    outline: none;
+  }
+
+  .last {
+    font-size: 10px;
+  }
+
+  #registerButton {
+    width: 10rem;
+    height: 1.75rem;
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
+
+  .already {
+    margin-top: 0.1rem;
+    font-size: 10px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 5px;
+    display: none;
   }
 }

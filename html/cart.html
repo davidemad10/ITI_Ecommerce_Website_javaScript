@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="../styles/cart.css" />
-    <link rel="stylesheet" href="../styles/HNF.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../styles/cart.css"
+    />
+    <link rel="stylesheet" href="../styles/HNF.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="../scripts/jscodetoinclude.js" defer></script>
     <script src="../scripts/ProductDetails.js" defer></script>
     <script src="../scripts/cart.js" defer></script>
-</head>
+  </head>
 
-<body>
-    <div class="container-fluid">
-        <!-- <header>
+  <body>
+    <div class="container-fluid p-0">
+      <!-- <header>
                 <div id="navbar-placeholder"></div>
         </header> -->
-        <header id="headerPH">
-        </header>
-        <div class=" navigation">
-            <div class="logo" id="logoPH"></div>
-            <nav id="navPH">
-            </nav>
+      <header id="headerPH"></header>
+      <div class="navigation">
+        <div class="logo" id="logoPH"></div>
+        <nav id="navPH"></nav>
+      </div>
+      <main>
+        <div id="cart-container">
+          <h2>Your Cart</h2>
+          <div id="cart-items" class="cart-items"></div>
+          <div id="total-price-container">
+            <strong>Total: </strong><span id="total-price">$0.00</span>
+          </div>
+          <button class="checkout">
+            <a href="../html/payment.html" style="color: beige">Checkout</a>
+          </button>
         </div>
-        <main>
-            <div id="cart-container">
-                <h2>Your Cart</h2>
-                <div id="cart-items" class="cart-items"></div>
-                <div id="total-price-container">
-                    <strong>Total: </strong><span id="total-price">$0.00</span>
-                </div>
-                <button class="checkout">
-                    <a href="../html/payment.html" style="color: beige;">Checkout</a>
-                </button>
-            </div>
-        </main>
-        <footer class="footer-section" id="footerPH">
-        </footer>
+      </main>
+      <footer
+        class="footer-section"
+        id="footerPH"
+        style="margin-bottom: 0px"
+      ></footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
-        integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+      integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
 </html>
