@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const registerButton = document.getElementById("registerButton");
 
-  const signupForm = document.querySelector(".signupForm");
+  // const signupForm = document.querySelector(".signupForm");
 
   // firstNameInput.addEventListener('focus', () => {
   //     firstNameInput.style.border = 'solid 0.25px red';
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   registerButton.addEventListener("submit", (event) => {
-    document.preventDefault();
+    event.preventDefault();
     if (firstNameInput.value.length < 3) {
       firstNameError.textContent = "Invalid name";
       firstNameError.style.display = "block";
@@ -187,29 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-//#############saving the data in the local storage#####################
-
-// document.getElementById("signupForm").addEventListener("submit", submitFun);
-
-// function submitFun(event) {
-//   event.preventDefault();
-
-//   const firstName = document.getElementById("firstName").value;
-//   const lastName = document.getElementById("lastName").value;
-//   const email = document.getElementById("email").value;
-//   const gender = document.getElementById("gender").value;
-//   const birthday = document.getElementById("birthday").value;
-//   const city = document.getElementById("city").value;
-//   const password = document.getElementById("password").value;
-
-//   localStorage.setItem("firstName", firstName);
-//   localStorage.setItem("lastName", lastName);
-//   localStorage.setItem("email", email);
-//   localStorage.setItem("gender", gender);
-//   localStorage.setItem("birthday", birthday);
-//   localStorage.setItem("city", city);
-//   localStorage.setItem("password", password);
 
 const binId = "66913e9cad19ca34f8869592";
 const masterKey =
@@ -296,6 +273,9 @@ document
 
       // Update the data on jsonbin.io using PUT
       await updateData(existingData);
+
+      
+      //saving the json data in the local storage
 
       // Convert the newData object to a JSON string
       const newDataJSON = JSON.stringify(newData);
