@@ -39,7 +39,7 @@ BASMADness Open Market is an e-commerce web application designed to provide a se
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/basmadness-open-market.git
+   git clone https://github.com/davidemad10/ITI_Ecommerce_Website_javaScript.git
 
 ### Prerequisites
 - A web server (e.g., [XAMPP](https://www.apachefriends.org/index.html), [WAMP](http://www.wampserver.com/), or [MAMP](https://www.mamp.info/en/))
