@@ -52,7 +52,7 @@ BASMADness Open Market is an e-commerce web application designed to provide a se
     ```
 2. Navigate to the project directory:
     ```sh
-    cd your-repo-name
+    cd ITI_Ecommerce_Website_javaScript
     ```
 3. Open the project in your preferred code editor (e.g., VS Code).
 
